@@ -12,7 +12,6 @@ export default withMT({
         'primary': '#414443',
         'secondary': '#e6e5e6',
         'accent': '#100f0f'
-
       }
     },
   },
