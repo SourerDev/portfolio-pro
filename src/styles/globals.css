@@ -1,3 +1,15 @@
+@layer base {
+  ::-webkit-scrollbar {
+    background: #ededed;
+    width: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #41444384;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #414443;
+  }
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
