@@ -3,7 +3,7 @@ import type { ReactNode } from 'react'
 type MainContainerProps = {
   className?: string
   children: ReactNode
-  Navbar: ReactNode
+  Navbar?: ReactNode
 }
 
 export function MainContainer({
