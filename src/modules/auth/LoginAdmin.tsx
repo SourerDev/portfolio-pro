@@ -10,8 +10,11 @@ import {
 } from '@material-tailwind/react'
 import { Fragment, useState } from 'react'
 import { isValidAdmin } from '~/utils'
+import { toast } from 'react-hot-toast'
+import { useRouter } from 'next/navigation'
 
 export function LoginAdmin() {
+  const navigate = useRouter()
   const [open, setOpen] = useState(false)
   const handleOpen = () => setOpen((cur) => !cur)
   const [username, setUsername] = useState('')
@@ -19,7 +22,9 @@ export function LoginAdmin() {
 
   function goDashboard() {
     const isValid = isValidAdmin(username, password)
-    console.log(isValid)
+    if (!isValid) toast.error('Unauthorized! - only administrator')
+    else navigate.push('/dashboard')
+
     handleOpen()
   }
 
