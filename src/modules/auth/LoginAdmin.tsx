@@ -42,7 +42,7 @@ export function LoginAdmin() {
         handler={handleOpen}
         className="bg-transparent shadow-none"
       >
-        <Card className="relative mx-auto w-full max-w-[24rem] py-5">
+        <Card className="relative mx-auto w-full max-w-[24rem] py-5 rounded">
           <button onClick={handleOpen} className="absolute right-5 top-5">
             <XMarkIcon className=" h-8 w-8 hover:text-red-700" />
           </button>
@@ -56,6 +56,7 @@ export function LoginAdmin() {
           </header>
           <CardBody className="flex flex-col gap-5">
             <Input
+              color="black"
               value={username}
               onChange={({ target }) => void setUsername(target.value)}
               variant="standard"
@@ -63,6 +64,7 @@ export function LoginAdmin() {
               size="lg"
             />
             <Input
+              color="black"
               variant="standard"
               label="Password"
               size="lg"
@@ -72,7 +74,11 @@ export function LoginAdmin() {
             />
           </CardBody>
           <CardFooter className="pt-0">
-            <Button variant="gradient" onClick={goDashboard} fullWidth>
+            <Button
+              className="bg-primary shadow-primary hover:shadow-primary"
+              onClick={goDashboard}
+              fullWidth
+            >
               Sign In
             </Button>
           </CardFooter>
