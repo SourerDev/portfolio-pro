@@ -18,9 +18,6 @@ type UploadImageProps = {
   setImages: Dispatch<SetStateAction<ImageProps[]>>
 }
 export function UploadImage({ images, setImages }: UploadImageProps) {
-  const preset_key = 'nihwfzxi'
-  const could_name = 'dolf4hf4p'
-
   function removeImage(index: number) {
     const Images = images.filter((_img, i) => i !== index)
     setImages(Images)
