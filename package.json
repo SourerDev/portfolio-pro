@@ -10,6 +10,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@cloudinary/react": "^1.11.2",
+    "@cloudinary/url-gen": "^1.10.2",
     "@heroicons/react": "^2.0.18",
     "@material-tailwind/react": "^2.0.4",
     "@prisma/client": "^4.14.0",
@@ -19,6 +21,7 @@
     "@trpc/next": "^10.26.0",
     "@trpc/react-query": "^10.26.0",
     "@trpc/server": "^10.26.0",
+    "axios": "1.4.0",
     "bcrypt-ts": "^4.0.0",
     "next": "^13.4.2",
     "react": "18.2.0",

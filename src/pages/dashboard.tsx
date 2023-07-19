@@ -1,4 +1,5 @@
 import {
+  AdjustmentsHorizontalIcon,
   ChevronLeftIcon,
   PowerIcon,
   Square3Stack3DIcon,
@@ -14,6 +15,8 @@ import Head from 'next/head'
 import { GoBack } from '~/components/GoBack'
 import { MainContainer } from '~/components/Main'
 import { useState, type Dispatch, type SetStateAction } from 'react'
+import { api } from '~/utils/api'
+import { ProjectList } from '~/components/ProjectList'
 
 export default function Dashboard() {
   const [current, setCurrent] = useState('projects')
@@ -43,7 +46,10 @@ export default function Dashboard() {
               {current.charAt(0).toUpperCase() + current.slice(1)}
             </Typography>
           </div>
-          <div className='p-2'>{current === 'projects' && <Projects />}{current === 'profile' && <Profile />}</div>
+          <div className="p-2">
+            {current === 'projects' && <Projects />}
+            {current === 'profile' && <Profile />}
+          </div>
         </main>
       </MainContainer>
     </>
@@ -85,8 +91,41 @@ export function NavList({ current, setCurrent }: NavListProps) {
   )
 }
 
+const TABS = ['All', 'Pending', 'Completed'] as const
+
 export function Projects() {
-  return <p> Los proyectos</p>
+  const [selected, setSelected] = useState<(typeof TABS)[number]>('All')
+  const projects = api.project.getAll.useQuery()
+
+  return (
+    <>
+      <div className=" flex justify-between px-1 shadow-md">
+        <ul className="space-x-3">
+          {TABS.map((tab) => (
+            <button
+              className={`px-4 py-2 text-center hover:bg-bg-secondary ${
+                tab === selected
+                  ? 'border-b-2 border-primary font-semibold'
+                  : ''
+              }`}
+              key={tab}
+              onClick={() => setSelected(tab)}
+            >
+              {tab}
+            </button>
+          ))}
+        </ul>
+        <span className="grid place-content-center">
+          <AdjustmentsHorizontalIcon className="h-7 w-7 cursor-pointer stroke-primary hover:stroke-accent" />
+        </span>
+      </div>
+      <ProjectList
+        isError={projects.isError}
+        projects={projects.data}
+        isLoading={projects.isLoading}
+      />
+    </>
+  )
 }
 export function Profile() {
   return <p> Mi Perfil</p>

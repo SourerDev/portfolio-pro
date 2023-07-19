@@ -1,17 +1,30 @@
-import { PlusSmallIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import {
+  InformationCircleIcon,
+  PlusSmallIcon,
+  XMarkIcon,
+} from '@heroicons/react/24/outline'
+import {
+  Alert,
   Button,
   Card,
   CardBody,
   CardFooter,
   Dialog,
-  Input,
   Option,
   Select,
+  Spinner,
   Textarea,
 } from '@material-tailwind/react'
 import { Fragment, useState } from 'react'
 import { api } from '~/utils/api'
+import { UploadImage } from './UploadImage'
+import { uploadImagesCloudinary } from '~/utils'
+
+type ImageProps = {
+  name: string
+  image: string
+  file: File
+}
 
 const STATE = ['PENDING', 'COMPLETED'] as const
 
@@ -20,12 +33,48 @@ export function ProjectForm() {
   const handleOpen = () => setOpen((cur) => !cur)
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
-  const [image, setImage] = useState('')
-  const [images, setImages] = useState<string[]>([])
+  const [images, setImages] = useState<ImageProps[]>([])
   const [state, setState] = useState<(typeof STATE)[number]>('PENDING')
+  const [error, setError] = useState('')
+  const [isLoading, setIsLoading] = useState({
+    loading: false,
+    msg: '',
+  })
 
   const createProject = api.project.create.useMutation()
 
+  function onCreate() {
+    if (!name) return setError('Please, enter a name Project')
+    if (!description) return setError('Please, enter a description Project')
+    if (!images.length) return setError('Please, add Project images')
+
+    setIsLoading({
+      loading: true,
+      msg: 'uploading images to Cloudinary',
+    })
+    uploadImagesCloudinary(images.map((image) => image.file))
+      .then((images) => {
+        setIsLoading({
+          loading: true,
+          msg: 'Creating project',
+        })
+        createProject.mutate({ name, images, description, state })
+        setIsLoading({
+          loading: true,
+          msg: 'Your project has been added',
+        })
+        setTimeout(() => {
+          setIsLoading({
+            loading: false,
+            msg: '',
+          })
+          handleOpen()
+        }, 3000)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
   return (
     <Fragment>
       <Button
@@ -44,7 +93,7 @@ export function ProjectForm() {
           <button onClick={handleOpen} className="absolute right-5 top-5">
             <XMarkIcon className=" h-8 w-8 hover:text-red-700" />
           </button>
-          <header className="sha mx-6 mt-4">
+          <header className="mx-6 mt-4">
             <input
               className="text-2xl font-semibold text-text-primary outline-none placeholder:text-text-primary focus:placeholder:text-gray-400"
               placeholder="Add project"
@@ -60,39 +109,7 @@ export function ProjectForm() {
               value={description}
               onChange={({ target }) => void setDescription(target.value)}
             />
-            <div>
-              {images.map((image, i) => (
-                <p key={i + 5}>{image}</p>
-              ))}
-            </div>
-            <div className="relative my-4 flex w-full">
-              <Input
-                variant="standard"
-                color="black"
-                label={`Image ${images.length + 1}`}
-                value={image}
-                onChange={({ target }) => void setImage(target.value)}
-                className="pr-20"
-                containerProps={{
-                  className: 'min-w-0',
-                }}
-              />
-              <Button
-                onClick={() => {
-                  setImage('')
-                  setImages((cur) => [...cur, image])
-                }}
-                size="sm"
-                disabled={!image}
-                className={`!absolute right-1 top-1 rounded ${
-                  image
-                    ? 'bg-primary shadow-primary hover:shadow-primary'
-                    : 'bg-gray-500'
-                }`}
-              >
-                Add
-              </Button>
-            </div>
+            <UploadImage images={images} setImages={setImages} />
             <Select
               color="gray"
               value={state}
@@ -108,13 +125,30 @@ export function ProjectForm() {
             </Select>
           </CardBody>
           <CardFooter className="pt-0">
+            {error && (
+              <Alert
+                icon={<InformationCircleIcon className="h-6 w-6" />}
+                color="orange"
+                variant="ghost"
+                className="mb-2 py-2"
+              >
+                <span>{error}</span>
+              </Alert>
+            )}
+            {isLoading.loading && (
+              <Alert
+                icon={<Spinner />}
+                color="green"
+                variant="ghost"
+                className="mb-2 py-2"
+              >
+                <span>{isLoading.msg}</span>
+              </Alert>
+            )}
+
             <Button
               className="bg-primary shadow-primary hover:shadow-primary"
-              onClick={(e) => {
-                e.preventDefault()
-                createProject.mutate({ name, images, description, state })
-                handleOpen()
-              }}
+              onClick={onCreate}
               fullWidth
             >
               Add project

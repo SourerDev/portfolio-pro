@@ -11,7 +11,7 @@ import { IconButton } from './Button'
 type ImageProps = {
   name: string
   image: string
-  file: File | null | undefined
+  file: File 
 }
 type UploadImageProps = {
   images: ImageProps[]
@@ -47,16 +47,6 @@ export function UploadImage({ images, setImages }: UploadImageProps) {
               ])
             }
             reader.readAsDataURL(file)
-
-            /*             const URL =
-              'https://api.cloudinary.com/v1_1/' + could_name + '/image/upload'
-            const formdata = new FormData()
-            formdata.append('file', file)
-            formdata.append('upload_preset', preset_key)
-            axios
-              .post(URL, formdata)
-              .then((res) => console.log(res))
-              .catch((err) => console.log(err)) */
           }}
         />
         <label

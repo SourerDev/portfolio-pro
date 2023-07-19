@@ -12,7 +12,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MainContainer className="overflow-hidden" Navbar={<NavBar />}>
-        <main className="h-screen p-4">holas 2</main>
+        <main className="h-screen p-4">Welcome</main>
         <Footer />
       </MainContainer>
     </>
