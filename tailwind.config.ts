@@ -13,7 +13,7 @@ export default withMT({
         'primary': '#414443',
         'secondary': '#e6e5e6',
         'accent': '#100f0f',
-        'bg-primary-dk': '#0a0908',
+        'bg-primary-dk': '#1e1e1e',
         'bg-secondary-dk': '#ededed',
         'text-primary-dk': '#fafafa',
         'primary-dk': '#414443',
