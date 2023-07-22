@@ -71,7 +71,7 @@ function NavList() {
       </Typography>
       <Typography as="li" variant="small" className="p-1 font-medium">
         <Link
-          href="/contact-me"
+          href="/contact"
           className="flex items-center transition-colors hover:text-blue-500"
         >
           Contact me
