@@ -31,7 +31,7 @@ export function LoginAdmin() {
   return (
     <Fragment>
       <button
-        className="rounded-sm px-4 py-2 text-sm hover:bg-accent"
+        className="rounded-sm px-4 py-2 text-sm hover:bg-accent dark:hover:bg-secondary dark:hover:shadow-sm dark:hover:font-medium"
         onClick={handleOpen}
       >
         Dashboard
