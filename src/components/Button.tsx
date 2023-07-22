@@ -1,11 +1,22 @@
+import { MoonIcon, SunIcon } from '@heroicons/react/24/outline'
 import { useTheme } from 'next-themes'
-import { type ComponentType } from 'react'
+import type {
+  ReactNode,
+  DetailedHTMLProps,
+  ComponentType,
+  ButtonHTMLAttributes,
+  AnchorHTMLAttributes,
+} from 'react'
+import Link, { type LinkProps } from 'next/link'
 
 type IconButtonProps = {
   className?: string
   Icon: ComponentType<any>
   onClick?: () => void
-}
+} & DetailedHTMLProps<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  HTMLButtonElement
+>
 
 export function IconButton({
   Icon,
@@ -30,9 +41,45 @@ export function ThemeMode() {
   return (
     <button
       onClick={() => (theme == 'dark' ? setTheme('light') : setTheme('dark'))}
-      className="absolute bottom-32 rounded-lg bg-gray-800 px-8 py-2 text-2xl text-white transition-all duration-100 hover:bg-gray-600 dark:bg-gray-50 dark:text-gray-800 dark:hover:bg-gray-300 md:text-4xl"
+      className=""
     >
-      Toggle Mode
+      {theme == 'dark' ? (
+        <SunIcon className="h-6 w-6" />
+      ) : (
+        <MoonIcon className="h-6 w-6" />
+      )}
     </button>
+  )
+}
+
+const Type = ['primary', 'secondary'] as const
+type LinkToProps = {
+  className?: string
+  children: ReactNode
+  type: (typeof Type)[number]
+} & DetailedHTMLProps<
+  AnchorHTMLAttributes<HTMLAnchorElement>,
+  HTMLAnchorElement
+>
+
+export function LinkTo({
+  type,
+  className = '',
+  children,
+  ...props
+}: LinkToProps) {
+  return (
+    <a
+      className={`flex items-center gap-2 rounded-sm px-8 py-2 font-medium hover:shadow-md hover:scale-105
+      ${
+        type === 'primary'
+          ? 'bg-primary text-bg-primary shadow-primary'
+          : 'bg-secondary text-text-primary'
+      }
+      ${className}`}
+      {...props}
+    >
+      {children}
+    </a>
   )
 }

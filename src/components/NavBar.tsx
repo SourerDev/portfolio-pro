@@ -6,6 +6,8 @@ import {
   Typography,
 } from '@material-tailwind/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { ThemeMode } from './Button'
+import Link from 'next/link'
 
 export function NavBar() {
   const [openNav, setOpenNav] = useState(false)
@@ -18,11 +20,13 @@ export function NavBar() {
   }, [])
 
   return (
-    <Navbar className="sticky top-0 mx-auto max-w-7xl rounded-none border-none bg-bg-primary px-6 py-3">
-      <div className="flex items-center justify-between text-blue-gray-900">
-        <Typography variant="h6" className="mr-4 cursor-pointer py-1.5">
-          Alegria Dev
-        </Typography>
+    <Navbar className="sticky top-0 z-50 mx-auto max-w-5xl rounded-none border-none bg-bg-primary px-6 py-3 dark:bg-bg-primary-dk">
+      <div className="flex items-center justify-between text-blue-gray-900 dark:text-text-primary-dk">
+        <Link href="/">
+          <Typography variant="h6" className="mr-4 cursor-pointer py-1.5">
+            Alegria Dev
+          </Typography>
+        </Link>
         <div className="hidden lg:block">
           <NavList />
         </div>
@@ -49,25 +53,15 @@ export function NavBar() {
 function NavList() {
   return (
     <ul className="my-2 flex flex-col gap-2 font-medium lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="p-1 font-medium"
-      >
-        <a
-          href="#"
+      <Typography as="li" variant="small" className="p-1 font-medium">
+        <Link
+          href="/projects"
           className="flex items-center transition-colors hover:text-blue-500"
         >
           Projects
-        </a>
+        </Link>
       </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="p-1 font-medium"
-      >
+      <Typography as="li" variant="small" className="p-1 font-medium">
         <a
           href="#"
           className="flex items-center transition-colors hover:text-blue-500"
@@ -75,19 +69,15 @@ function NavList() {
           About me
         </a>
       </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="p-1 font-medium"
-      >
-        <a
-          href="#"
+      <Typography as="li" variant="small" className="p-1 font-medium">
+        <Link
+          href="/contact-me"
           className="flex items-center transition-colors hover:text-blue-500"
         >
           Contact me
-        </a>
+        </Link>
       </Typography>
+      <ThemeMode />
     </ul>
   )
 }
