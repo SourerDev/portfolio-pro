@@ -25,7 +25,7 @@ export default function Dashboard() {
       <Head>
         <title>Dashboard | Porfolio</title>
       </Head>
-      <MainContainer className="flex gap-x-3 py-2">
+      <MainContainer className="flex gap-x-3 py-2 max-w-7xl">
         <div className="rounded border px-4 py-4 shadow-md">
           <header className="flex items-center gap-x-2 border-b pb-3">
             <GoBack>
