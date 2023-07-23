@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { Footer } from '~/components/Footer'
 import { MainContainer } from '~/components/Main'
 import { NavBar } from '~/components/NavBar'
 
@@ -11,7 +12,11 @@ export default function ContactMe() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MainContainer Navbar={<NavBar />} className="p-6">
-        Contact me
+        <main className="min-h-[90vh]">
+          Contact me
+        </main>
+
+        <Footer />
       </MainContainer>
     </>
   )

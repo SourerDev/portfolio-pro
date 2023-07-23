@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { Footer } from '~/components/Footer'
 import { MainContainer } from '~/components/Main'
 import { NavBar } from '~/components/NavBar'
 
@@ -11,7 +12,11 @@ export default function ProjectsPage() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MainContainer className="p-6" Navbar={<NavBar />}>
-        <p>This is a project page</p>
+        <main className="min-h-[90vh]">
+          <p>This is a project page</p>
+        </main>
+
+        <Footer />
       </MainContainer>
     </>
   )
