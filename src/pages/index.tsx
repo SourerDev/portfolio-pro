@@ -16,7 +16,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MainContainer className="overflow-hidden" Navbar={<NavBar />}>
-        <main className="flex min-h-[90vh] flex-col justify-around md:justify-between gap-4 p-6 md:flex-row-reverse md:items-center">
+        <main className="flex min-h-[90vh] flex-col justify-around gap-4 p-6 md:flex-row-reverse md:items-center md:justify-between">
           <div className="relative md:h-[240px] md:w-1/4">
             <Image
               className="absolute left-0 top-0 hidden rounded-sm md:block"
@@ -26,7 +26,7 @@ export default function Home() {
               alt="Owner"
             />
             <Image
-              className="absolute right-0 top-0 rounded-sm md:top-auto md:bottom-0 w-[150px] h-[150px] l md:w-[200px] md:h-[200px]"
+              className="l absolute right-0 top-0 h-[150px] w-[150px] rounded-sm md:bottom-0 md:top-auto md:h-[200px] md:w-[200px]"
               src="https://res.cloudinary.com/dolf4hf4p/image/upload/f_auto,q_auto/ltu9dy9otlznpjwibxzs"
               width={200}
               height={200}
@@ -39,16 +39,16 @@ export default function Home() {
             <Typography variant="h4">Frontend Developer</Typography>
             <div className="mt-5 ">
               <Typography variant="paragraph">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Laudantium praesentium eius officiis quas alias, fugit voluptas
-                magnam nemo nihil ut, id neque quasi. Ullam a illum
-                exercitationem eveniet quis ipsa!
+                I love working with typescript and react, I have experience
+                creating attractive and functional user interfaces. My main goal
+                is to merge my love for design and programming to deliver
+                exceptional digital experiences.
               </Typography>
               <Typography variant="paragraph">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Laudantium praesentium eius officiis quas alias, fugit voluptas
-                magnam nemo nihil ut, id neque quasi. Ullam a illum
-                exercitationem eveniet quis ipsa!
+                If you are looking for a Frontend Developer committed to
+                excellence and innovation, do not hesitate to contact me. I am
+                excited to explore new opportunities and contribute to the
+                success of your project.
               </Typography>
             </div>
             <div className="mt-6 grid grid-cols-3 gap-2 md:flex md:gap-4">
