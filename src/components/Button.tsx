@@ -1,11 +1,12 @@
 import { MoonIcon, SunIcon } from '@heroicons/react/24/outline'
 import { useTheme } from 'next-themes'
-import type {
-  ReactNode,
-  DetailedHTMLProps,
-  ComponentType,
-  ButtonHTMLAttributes,
-  AnchorHTMLAttributes,
+import {
+  type ReactNode,
+  type DetailedHTMLProps,
+  type ComponentType,
+  type ButtonHTMLAttributes,
+  type AnchorHTMLAttributes,
+  useEffect,
 } from 'react'
 import Link, { type LinkProps } from 'next/link'
 
@@ -35,9 +36,11 @@ export function IconButton({
 
 export function ThemeMode() {
   const { systemTheme, theme, setTheme } = useTheme()
-
   const currentTheme = theme === 'system' ? systemTheme : theme
-  setTheme('dark')
+
+  useEffect(() => {
+    setTheme('dark')
+  }, [setTheme])
 
   return (
     <button
