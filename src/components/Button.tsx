@@ -37,6 +37,7 @@ export function ThemeMode() {
   const { systemTheme, theme, setTheme } = useTheme()
 
   const currentTheme = theme === 'system' ? systemTheme : theme
+  setTheme('dark')
 
   return (
     <button
@@ -70,7 +71,7 @@ export function LinkTo({
 }: LinkToProps) {
   return (
     <a
-      className={`flex items-center gap-2 rounded-sm px-8 py-2 font-medium hover:shadow-md hover:scale-105
+      className={`flex items-center gap-2 rounded-sm px-8 py-2 font-medium hover:scale-105 hover:shadow-md
       ${
         type === 'primary'
           ? 'bg-primary text-bg-primary shadow-primary'
