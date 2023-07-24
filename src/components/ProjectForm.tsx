@@ -77,12 +77,12 @@ export function ProjectForm() {
   }
   return (
     <Fragment>
-      <Button
+      <button
         onClick={handleOpen}
-        className="flex h-[150px] w-[200px] flex-col items-center justify-center gap-5 bg-bg-primary text-base font-medium lowercase text-text-primary shadow-bg-secondary hover:bg-bg-secondary hover:text-gray-600 hover:shadow-bg-secondary"
+        className="flex h-[150px] w-[200px] flex-col items-center justify-center gap-5 rounded-sm bg-secondary text-base text-text-primary hover:font-medium hover:shadow-sm hover:shadow-secondary dark:shadow-accent hover:scale-105"
       >
         <PlusSmallIcon className="h-9 w-9" /> Add project
-      </Button>
+      </button>
       <Dialog
         size="md"
         open={open}
@@ -95,7 +95,7 @@ export function ProjectForm() {
           </button>
           <header className="mx-6 mt-4">
             <input
-              className="text-2xl font-semibold text-text-primary outline-none placeholder:text-text-primary focus:placeholder:text-gray-400"
+              className="text-2xl font-semibold text-text-primary outline-none placeholder:text-text-primary focus:placeholder:text-gray-400 dark:bg-transparent"
               placeholder="Add project"
               value={name}
               onChange={({ target }) => void setName(target.value)}

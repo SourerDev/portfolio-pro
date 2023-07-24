@@ -38,10 +38,6 @@ export function ThemeMode() {
   const { systemTheme, theme, setTheme } = useTheme()
   const currentTheme = theme === 'system' ? systemTheme : theme
 
-  useEffect(() => {
-    setTheme('dark')
-  }, [setTheme])
-
   return (
     <button
       onClick={() => (theme == 'dark' ? setTheme('light') : setTheme('dark'))}
@@ -50,7 +46,7 @@ export function ThemeMode() {
       {theme == 'dark' ? (
         <SunIcon className="h-6 w-6" />
       ) : (
-        <MoonIcon className="h-6 w-6" />
+        <MoonIcon className="h-5 w-5" />
       )}
     </button>
   )

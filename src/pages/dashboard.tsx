@@ -17,6 +17,7 @@ import { MainContainer } from '~/components/Main'
 import { useState, type Dispatch, type SetStateAction } from 'react'
 import { api } from '~/utils/api'
 import { ProjectList } from '~/components/ProjectList'
+import { ThemeMode } from '~/components/Button'
 
 export default function Dashboard() {
   const [current, setCurrent] = useState('projects')
@@ -25,8 +26,8 @@ export default function Dashboard() {
       <Head>
         <title>Dashboard | Porfolio</title>
       </Head>
-      <MainContainer className="flex gap-x-3 py-2 max-w-7xl">
-        <div className="rounded border px-4 py-4 shadow-md">
+      <MainContainer className="flex max-w-7xl gap-x-3 py-2">
+        <div className="rounded  px-4 py-4 shadow-md dark:shadow-accent ">
           <header className="flex items-center gap-x-2 border-b pb-3">
             <GoBack>
               <ChevronLeftIcon />
@@ -34,10 +35,11 @@ export default function Dashboard() {
             <Typography variant="h2" className="text-xl font-medium">
               Dashboard
             </Typography>
+            <ThemeMode />
           </header>
           <NavList current={current} setCurrent={setCurrent} />
         </div>
-        <main className="relative w-full overflow-y-hidden rounded border p-4 shadow-md">
+        <main className="relative w-full overflow-y-hidden rounded  p-4 shadow-md dark:shadow-accent">
           <Typography variant="h6" className="absolute right-6 top-6">
             Alegria Dev
           </Typography>
@@ -64,7 +66,9 @@ export function NavList({ current, setCurrent }: NavListProps) {
   return (
     <List>
       <ListItem
-        className={`${current === 'projects' ? 'font-semibold' : ''}`}
+        className={`dark:text-bg-secondary dark:hover:bg-accent ${
+          current === 'projects' ? 'font-semibold' : ''
+        }`}
         onClick={() => setCurrent('projects')}
       >
         <ListItemPrefix>
@@ -73,7 +77,9 @@ export function NavList({ current, setCurrent }: NavListProps) {
         Projects
       </ListItem>
       <ListItem
-        className={`${current === 'profile' ? 'font-semibold' : ''}`}
+        className={`dark:text-bg-secondary dark:hover:bg-accent ${
+          current === 'profile' ? 'font-semibold' : ''
+        }`}
         onClick={() => setCurrent('profile')}
       >
         <ListItemPrefix>
@@ -81,7 +87,7 @@ export function NavList({ current, setCurrent }: NavListProps) {
         </ListItemPrefix>
         Profile
       </ListItem>
-      <ListItem>
+      <ListItem className="dark:text-bg-secondary dark:hover:bg-accent">
         <ListItemPrefix>
           <PowerIcon className="h-5 w-5" />
         </ListItemPrefix>
@@ -103,7 +109,7 @@ export function Projects() {
         <ul className="space-x-3">
           {TABS.map((tab) => (
             <button
-              className={`px-4 py-2 text-center hover:bg-bg-secondary ${
+              className={`px-4 py-2 text-center hover:bg-bg-secondary dark:hover:bg-accent ${
                 tab === selected
                   ? 'border-b-2 border-primary font-semibold'
                   : ''
@@ -116,7 +122,7 @@ export function Projects() {
           ))}
         </ul>
         <span className="grid place-content-center">
-          <AdjustmentsHorizontalIcon className="h-7 w-7 cursor-pointer stroke-primary hover:stroke-accent" />
+          <AdjustmentsHorizontalIcon className="h-7 w-7 cursor-pointer stroke-primary hover:stroke-accent dark:hover:stroke-bg-primary" />
         </span>
       </div>
       <ProjectList
