@@ -6,7 +6,6 @@ import {
   type ComponentType,
   type ButtonHTMLAttributes,
   type AnchorHTMLAttributes,
-  useEffect,
 } from 'react'
 import Link, { type LinkProps } from 'next/link'
 

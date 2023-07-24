@@ -1,5 +1,5 @@
 import { PaperAirplaneIcon } from '@heroicons/react/24/outline'
-import { Button, Input, Textarea, Typography } from '@material-tailwind/react'
+import { Typography } from '@material-tailwind/react'
 import Head from 'next/head'
 import { Footer } from '~/components/Footer'
 import { MainInput, MainTextArea } from '~/components/Input'
