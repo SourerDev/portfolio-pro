@@ -28,13 +28,15 @@ export default function Dashboard() {
       </Head>
       <MainContainer className="flex max-w-7xl gap-x-3 py-2">
         <div className="rounded  px-4 py-4 shadow-md dark:shadow-accent ">
-          <header className="flex items-center gap-x-2 border-b pb-3">
-            <GoBack>
-              <ChevronLeftIcon />
-            </GoBack>
-            <Typography variant="h2" className="text-xl font-medium">
-              Dashboard
-            </Typography>
+          <header className="flex items-center justify-between gap-x-2 border-b pb-3">
+            <span className='flex items-center gap-x-2'>
+              <GoBack>
+                <ChevronLeftIcon />
+              </GoBack>
+              <Typography variant="h2" className="text-xl font-medium">
+                Dashboard
+              </Typography>
+            </span>
             <ThemeMode />
           </header>
           <NavList current={current} setCurrent={setCurrent} />
