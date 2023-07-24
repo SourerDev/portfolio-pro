@@ -18,7 +18,7 @@ export function MainInput({ label, className = '', ...props }: MainInputProps) {
       <input
         id={label}
         type="text"
-        className={` rounded-md px-4 py-2 outline-none bg-secondary placeholder:text-gray-700 text-text-primary ${className}`}
+        className={` rounded-md bg-secondary px-4 py-2 text-text-primary outline-none placeholder:text-gray-700 ${className}`}
         {...props}
       />
     </div>
@@ -40,7 +40,8 @@ export function MainTextArea({ label, ...props }: MainTextAreaProps) {
         {label}
       </label>
       <textarea
-        className="rounded-md px-4 py-2 outline-none bg-secondary placeholder:text-gray-700 text-text-primary"
+        rows={5}
+        className="rounded-md bg-secondary px-4 py-2 text-text-primary outline-none placeholder:text-gray-700"
         name=""
         id="label"
         {...props}
