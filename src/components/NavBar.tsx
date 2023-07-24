@@ -62,14 +62,6 @@ function NavList() {
         </Link>
       </Typography>
       <Typography as="li" variant="small" className="p-1 font-medium">
-        <a
-          href="#"
-          className="flex items-center transition-colors hover:text-blue-500"
-        >
-          About me
-        </a>
-      </Typography>
-      <Typography as="li" variant="small" className="p-1 font-medium">
         <Link
           href="/contact"
           className="flex items-center transition-colors hover:text-blue-500"
