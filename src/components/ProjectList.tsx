@@ -100,7 +100,7 @@ function PreviewProject({ name, description, images }: Project) {
         handler={handleOpen}
         className="bg-transparent shadow-none"
       >
-        <Card className="relative mx-auto max-h-[95vh] min-h-full overflow-y-scroll rounded-none bg-bg-primary pt-6">
+        <Card className="relative mx-auto max-h-[95vh] min-h-full overflow-y-scroll rounded-none bg-bg-primary dark:bg-bg-primary-dk dark:text-secondary pt-6">
           <button onClick={handleOpen} className="absolute right-5 top-5">
             <XMarkIcon className=" h-8 w-8 hover:text-red-700" />
           </button>
@@ -114,7 +114,7 @@ function PreviewProject({ name, description, images }: Project) {
                     {new Array(length).fill('').map((_, i) => (
                       <span
                         key={i}
-                        className={`block h-1 cursor-pointer rounded-2xl transition-all content-[''] ${
+                        className={`block h-1 cursor-pointer rounded-2xl transition-all content-[''] bg-blend-difference ${
                           activeIndex === i ? 'w-8 bg-white' : 'w-4 bg-white/50'
                         }`}
                         onClick={() => setActiveIndex(i)}
