@@ -17,14 +17,20 @@ model Project {
     description String
     images      String[]
     state       State    @default(PENDING)
-    github      String
+    github      String?
     deploy      String?
+    goals       String[]
+    createdAt   DateTime @default(now())
 }
 
-model Example {
-    id        String   @id @default(cuid())
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+model Image {
+    id      String @id @default(cuid())
+    url     String
+    cloudId String
+}
+
+model Experiece {
+    id String @id @default(cuid())
 }
 
 enum State {

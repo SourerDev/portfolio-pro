@@ -10,6 +10,7 @@ import {
   CardBody,
   CardFooter,
   Dialog,
+  Input,
   Option,
   Select,
   Spinner,
@@ -79,12 +80,12 @@ export function ProjectForm() {
     <Fragment>
       <button
         onClick={handleOpen}
-        className="flex h-[150px] w-[200px] flex-col items-center justify-center gap-5 rounded-sm bg-secondary text-base text-text-primary hover:font-medium hover:shadow-sm hover:shadow-secondary dark:shadow-accent hover:scale-105"
+        className="flex h-[150px] w-[200px] flex-col items-center justify-center gap-5 rounded-sm bg-secondary text-base text-text-primary hover:scale-105 hover:font-medium hover:shadow-sm hover:shadow-secondary dark:shadow-accent"
       >
         <PlusSmallIcon className="h-9 w-9" /> Add project
       </button>
       <Dialog
-        size="md"
+        size="xl"
         open={open}
         handler={handleOpen}
         className="bg-transparent shadow-none"
@@ -101,28 +102,35 @@ export function ProjectForm() {
               onChange={({ target }) => void setName(target.value)}
             />
           </header>
-          <CardBody>
-            <Textarea
-              color="gray"
-              variant="standard"
-              label="Description"
-              value={description}
-              onChange={({ target }) => void setDescription(target.value)}
-            />
-            <UploadImage images={images} setImages={setImages} />
-            <Select
-              color="gray"
-              value={state}
-              onChange={(value) => {
-                if (value === STATE[1]) setState('COMPLETED')
-                else setState('PENDING')
-              }}
-              variant="standard"
-              label="state"
-            >
-              <Option value="PENDING">Process</Option>
-              <Option value="COMPLETED">Completed</Option>
-            </Select>
+          <CardBody className="flex gap-x-4">
+            <div className='w-3/4'>
+              <Textarea
+                color="gray"
+                variant="standard"
+                label="Description"
+                value={description}
+                onChange={({ target }) => void setDescription(target.value)}
+              />
+              <UploadImage images={images} setImages={setImages} />
+            </div>
+            <div className='w-1/4'>
+              <Select
+                color="gray"
+                value={state}
+                onChange={(value) => {
+                  if (value === STATE[1]) setState('COMPLETED')
+                  else setState('PENDING')
+                }}
+                variant="standard"
+                label="state"
+              >
+                <Option value="PENDING">Process</Option>
+                <Option value="COMPLETED">Completed</Option>
+              </Select>
+              <p>Links</p>
+              <Input variant='static' color='black' placeholder='GitHub'/>
+              <Input variant='static' color='black' placeholder='Deploy'/>
+            </div>
           </CardBody>
           <CardFooter className="pt-0">
             {error && (
