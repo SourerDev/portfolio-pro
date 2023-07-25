@@ -14,7 +14,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MainContainer className="overflow-hidden">
-        <main className="flex min-h-[90vh] flex-col justify-around gap-4 p-6 md:flex-row-reverse md:items-center md:justify-between">
+        <main className="flex min-h-[90vh] flex-col justify-around gap-4 md:flex-row-reverse md:items-center md:justify-between">
           <div className="relative md:h-[240px] md:w-1/4">
             <Image
               className="absolute left-0 top-0 hidden rounded-sm md:block"

@@ -13,7 +13,7 @@ export default function ProjectsPage() {
         <meta name="description" content="Frontend Developer" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <MainContainer className="p-6">
+      <MainContainer>
         <main className="min-h-[90vh]">
           <ProjectListClient
             projects={projects.data}

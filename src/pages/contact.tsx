@@ -18,7 +18,7 @@ export default function ContactMe() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MainContainer>
-        <main className="flex min-h-[90vh] flex-col justify-center p-6">
+        <main className="flex min-h-[90vh] flex-col justify-center">
           <Typography variant="h1">Contact me</Typography>
 
           <p className="mt-2 flex flex-col">
