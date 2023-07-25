@@ -150,18 +150,20 @@ export function ProjectListClient({
 }: ProjectListProps) {
   if (isLoading) return <span>... Loading</span>
   if (isError) return <span> error </span>
+
+  if (!projects?.length) return <h2>No projects</h2>
   return (
     <div className="grid grid-cols-2 gap-4 ">
       {projects?.map((project) => (
-        <ProjectCardClient key={project.id} {...project}/>
+        <ProjectCardClient key={project.id} {...project} />
       ))}
     </div>
   )
 }
 
-function ProjectCardClient({name}:Project) {
+function ProjectCardClient({ name }: Project) {
   return (
-    <Card className="rounded-sm bg-bg-primary dark:bg-bg-primary-dk dark:shadow-accent text-bg-primary">
+    <Card className="rounded-sm bg-bg-primary text-bg-primary dark:bg-bg-primary-dk dark:shadow-accent">
       <CardBody>{name}</CardBody>
     </Card>
   )
