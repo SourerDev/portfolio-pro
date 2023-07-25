@@ -163,7 +163,7 @@ export function ProjectListClient({
 
 function ProjectCardClient({ name }: Project) {
   return (
-    <Card className="rounded-sm bg-bg-primary text-bg-primary dark:bg-bg-primary-dk dark:shadow-accent">
+    <Card className="rounded-sm bg-bg-primary dark:text-bg-primary dark:bg-bg-primary-dk dark:shadow-accent">
       <CardBody>{name}</CardBody>
     </Card>
   )
