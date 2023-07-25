@@ -54,6 +54,7 @@ export default function Home() {
                 className="col-span-3 justify-center"
                 href="/cv"
                 type="primary"
+                local
               >
                 Read More
               </LinkTo>

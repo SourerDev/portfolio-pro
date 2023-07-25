@@ -1,5 +1,6 @@
 import { MoonIcon, SunIcon } from '@heroicons/react/24/outline'
 import { useTheme } from 'next-themes'
+import Link from 'next/link'
 import {
   type ReactNode,
   type DetailedHTMLProps,
@@ -7,7 +8,6 @@ import {
   type ButtonHTMLAttributes,
   type AnchorHTMLAttributes,
 } from 'react'
-import Link, { type LinkProps } from 'next/link'
 
 type IconButtonProps = {
   className?: string
@@ -56,6 +56,7 @@ type LinkToProps = {
   className?: string
   children: ReactNode
   type: (typeof Type)[number]
+  local?: boolean
 } & DetailedHTMLProps<
   AnchorHTMLAttributes<HTMLAnchorElement>,
   HTMLAnchorElement
@@ -65,19 +66,21 @@ export function LinkTo({
   type,
   className = '',
   children,
+  local = false,
+  href = '',
   ...props
 }: LinkToProps) {
-  return (
-    <a
-      className={`flex items-center gap-2 rounded-sm px-8 py-2 font-medium hover:scale-105 hover:shadow-md
-      ${
-        type === 'primary'
-          ? 'bg-primary text-bg-primary shadow-primary'
-          : 'bg-secondary text-text-primary'
-      }
-      ${className}`}
-      {...props}
-    >
+  const classname = `flex items-center gap-2 rounded-sm px-8 py-2 font-medium hover:scale-105 hover:shadow-md
+  ${
+    type === 'primary'
+      ? 'bg-primary text-bg-primary shadow-primary'
+      : 'bg-secondary text-text-primary'
+  }
+  ${className}`
+  return local ? (
+    <Link className={classname} href={href}>{children}</Link>
+  ) : (
+    <a className={classname} href={href} {...props}>
       {children}
     </a>
   )
