@@ -17,6 +17,8 @@ model Project {
     description String
     images      String[]
     state       State    @default(PENDING)
+    github      String
+    deploy      String?
 }
 
 model Example {
