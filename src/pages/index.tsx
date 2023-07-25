@@ -2,10 +2,8 @@ import { Typography } from '@material-tailwind/react'
 import Head from 'next/head'
 import Image from 'next/image'
 import { LinkTo } from '~/components/Button'
-import { Footer } from '~/components/Footer'
 import { GitHubIcon, LinkedInIcon, TwitterIcon } from '~/components/Icons'
 import { MainContainer } from '~/components/Main'
-import { NavBar } from '~/components/NavBar'
 
 export default function Home() {
   return (
@@ -15,7 +13,7 @@ export default function Home() {
         <meta name="description" content="Frontend Developer" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <MainContainer className="overflow-hidden" Navbar={<NavBar />}>
+      <MainContainer className="overflow-hidden">
         <main className="flex min-h-[90vh] flex-col justify-around gap-4 p-6 md:flex-row-reverse md:items-center md:justify-between">
           <div className="relative md:h-[240px] md:w-1/4">
             <Image
@@ -92,7 +90,6 @@ export default function Home() {
             </div>
           </div>
         </main>
-        <Footer />
       </MainContainer>
     </>
   )
