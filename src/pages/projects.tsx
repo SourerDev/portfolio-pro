@@ -2,8 +2,12 @@ import Head from 'next/head'
 import { Footer } from '~/components/Footer'
 import { MainContainer } from '~/components/Main'
 import { NavBar } from '~/components/NavBar'
+import { ProjectListClient } from '~/components/ProjectList'
+import { api } from '~/utils/api'
 
 export default function ProjectsPage() {
+  const projects = api.project.getAll.useQuery()
+
   return (
     <>
       <Head>
@@ -13,7 +17,11 @@ export default function ProjectsPage() {
       </Head>
       <MainContainer className="p-6" Navbar={<NavBar />}>
         <main className="min-h-[90vh]">
-          <p>This is a project page</p>
+          <ProjectListClient
+            projects={projects.data}
+            isError={projects.isError}
+            isLoading={projects.isLoading}
+          />
         </main>
 
         <Footer />
