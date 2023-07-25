@@ -2,10 +2,8 @@ import { PaperAirplaneIcon } from '@heroicons/react/24/outline'
 import { Typography } from '@material-tailwind/react'
 import Head from 'next/head'
 import { useState } from 'react'
-import { Footer } from '~/components/Footer'
 import { MainInput, MainTextArea } from '~/components/Input'
 import { MainContainer } from '~/components/Main'
-import { NavBar } from '~/components/NavBar'
 
 export default function ContactMe() {
   const [name, setName] = useState('')
@@ -19,7 +17,7 @@ export default function ContactMe() {
         <meta name="description" content="Frontend Developer" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <MainContainer Navbar={<NavBar />}>
+      <MainContainer>
         <main className="flex min-h-[90vh] flex-col justify-center p-6">
           <Typography variant="h1">Contact me</Typography>
 
@@ -54,8 +52,6 @@ export default function ContactMe() {
             Send
           </button>
         </main>
-
-        <Footer />
       </MainContainer>
     </>
   )
