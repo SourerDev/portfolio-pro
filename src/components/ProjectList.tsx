@@ -100,7 +100,7 @@ function PreviewProject({ name, description, images }: Project) {
         handler={handleOpen}
         className="bg-transparent shadow-none"
       >
-        <Card className="relative mx-auto max-h-[95vh] min-h-full overflow-y-scroll rounded-none bg-bg-primary dark:bg-bg-primary-dk dark:text-secondary pt-6">
+        <Card className="relative mx-auto max-h-[95vh] min-h-full overflow-y-scroll rounded-none bg-bg-primary pt-6 dark:bg-bg-primary-dk dark:text-secondary">
           <button onClick={handleOpen} className="absolute right-5 top-5">
             <XMarkIcon className=" h-8 w-8 hover:text-red-700" />
           </button>
@@ -114,7 +114,7 @@ function PreviewProject({ name, description, images }: Project) {
                     {new Array(length).fill('').map((_, i) => (
                       <span
                         key={i}
-                        className={`block h-1 cursor-pointer rounded-2xl transition-all content-[''] bg-blend-difference ${
+                        className={`block h-1 cursor-pointer rounded-2xl bg-blend-difference transition-all content-[''] ${
                           activeIndex === i ? 'w-8 bg-white' : 'w-4 bg-white/50'
                         }`}
                         onClick={() => setActiveIndex(i)}
@@ -141,4 +141,22 @@ function PreviewProject({ name, description, images }: Project) {
       </Dialog>
     </Fragment>
   )
+}
+
+export function ProjectListClient({
+  isLoading,
+  isError,
+  projects,
+}: ProjectListProps) {
+  return (
+    <div>
+      {projects?.map((project) => (
+        <ProjectCardClient key={project.id} />
+      ))}
+    </div>
+  )
+}
+
+function ProjectCardClient() {
+  return <div>1</div>
 }

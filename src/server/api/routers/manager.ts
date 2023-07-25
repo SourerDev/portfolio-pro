@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-import { protectedProcedure,publicProcedure, createTRPCRouter } from "~/server/api/trpc";
+import { protectedProcedure, publicProcedure, createTRPCRouter } from "~/server/api/trpc";
 
 export const managerRouter = createTRPCRouter({
   signIn: publicProcedure.input(z.object({
@@ -9,5 +9,13 @@ export const managerRouter = createTRPCRouter({
   })).mutation(({ input }) => {
     return true
   }
-  )
+  ),
+  onContact: publicProcedure.input(z.object({
+    name: z.string(),
+    email: z.string(),
+    message: z.string()
+  })).query(({ input }) => {
+
+    return
+  })
 })

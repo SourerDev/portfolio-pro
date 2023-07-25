@@ -1,12 +1,17 @@
 import { PaperAirplaneIcon } from '@heroicons/react/24/outline'
 import { Typography } from '@material-tailwind/react'
 import Head from 'next/head'
+import { useState } from 'react'
 import { Footer } from '~/components/Footer'
 import { MainInput, MainTextArea } from '~/components/Input'
 import { MainContainer } from '~/components/Main'
 import { NavBar } from '~/components/NavBar'
 
 export default function ContactMe() {
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
+
   return (
     <>
       <Head>
@@ -23,13 +28,25 @@ export default function ContactMe() {
             <span>Drop me a message!</span>
           </p>
           <div className="my-10 flex gap-5">
-            <MainInput label="Name" placeholder="your name" />
-            <MainInput label="Email" placeholder="example@example.ex" />
+            <MainInput
+              label="Name"
+              placeholder="your name"
+              value={name}
+              onChange={({ target }) => setName(target.value)}
+            />
+            <MainInput
+              label="Email"
+              placeholder="example@example.ex"
+              value={email}
+              onChange={({ target }) => setEmail(target.value)}
+            />
           </div>
           <div className="my-5">
             <MainTextArea
               label="Message"
               placeholder="Enter your message here"
+              value={message}
+              onChange={({ target }) => setMessage(target.value)}
             />
           </div>
           <button className="group flex items-center gap-2 self-end rounded-md bg-primary py-3 pl-4 pr-5 font-medium text-bg-primary hover:scale-105 hover:shadow-md">
