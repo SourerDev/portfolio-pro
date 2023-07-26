@@ -1,3 +1,5 @@
+import type { ReactNode, Dispatch, SetStateAction } from 'react'
+
 import {
   InformationCircleIcon,
   LinkIcon,
@@ -121,70 +123,48 @@ export function ProjectForm() {
                 placeholder="Writte your description here"
               />
 
-              <Accordion
-                open={openacc === 1}
-                icon={<Icon id={1} open={openacc} />}
+              <MainAccordion
+                header="Images"
+                id={1}
+                open={openacc}
+                handleOpen={() => handleOpenacc(1)}
               >
-                <AccordionHeader
-                  className="pb-1 text-lg font-medium"
-                  onClick={() => handleOpenacc(1)}
-                >
-                  Images
-                </AccordionHeader>
-                <AccordionBody>
-                  <UploadImage images={images} setImages={setImages} />
-                </AccordionBody>
-              </Accordion>
-              <Accordion
-                open={openacc === 2}
-                icon={<Icon id={2} open={openacc} />}
+                <UploadImage images={images} setImages={setImages} />
+              </MainAccordion>
+
+              <MainAccordion
+                header="Goals"
+                id={2}
+                open={openacc}
+                handleOpen={() => handleOpenacc(2)}
               >
-                <AccordionHeader
-                  className="pb-1 text-lg font-medium"
-                  onClick={() => handleOpenacc(2)}
-                >
-                  Goals
-                </AccordionHeader>
-                <AccordionBody>
-                  <form onSubmit={(evt) => 
-                    {
-                      evt.preventDefault()
-                      console.log('enter')}}>
-                    <MainInput label="" placeholder="add goal" />
-                  </form>
-                </AccordionBody>
-              </Accordion>
-              <Accordion
-                open={openacc === 3}
-                icon={<Icon id={3} open={openacc} />}
+                <MainInput
+                  label=""
+                  placeholder="add goal"
+                  onKeyDown={({ code }) => console.log(code)}
+                />
+              </MainAccordion>
+
+              <MainAccordion
+                header="Tech Stack"
+                id={3}
+                open={openacc}
+                handleOpen={() => handleOpenacc(3)}
               >
-                <AccordionHeader
-                  className="pb-1 text-lg font-medium"
-                  onClick={() => handleOpenacc(3)}
-                >
-                  Tech Stack
-                </AccordionHeader>
-                <AccordionBody>
-                  <div className="flex gap-4">
-                    <MainInput label="" placeholder="add tech" />
-                    <MainInput label="" placeholder="version" />
-                  </div>
-                </AccordionBody>
-              </Accordion>
-              <Accordion
-                open={openacc === 4}
-                icon={<Icon id={4} open={openacc} />}
+                <div className="flex gap-4">
+                  <MainInput label="" placeholder="add tech" />
+                  <MainInput label="" placeholder="version" />
+                </div>
+              </MainAccordion>
+
+              <MainAccordion
+                header="Crontribuitors"
+                id={4}
+                open={openacc}
+                handleOpen={() => handleOpenacc(4)}
               >
-                <AccordionHeader
-                  className="pb-1 text-lg font-medium"
-                  onClick={() => handleOpenacc(4)}
-                >
-                  Contribuitors
-                </AccordionHeader>
-                <AccordionBody>
-                  <MainInput label="" placeholder="add contribuitor" />
-                </AccordionBody>
-              </Accordion>
+                <MainInput label="" placeholder="add contribuitor" />
+              </MainAccordion>
             </div>
             <div className="relative w-1/4">
               <Select
@@ -270,5 +250,33 @@ function Icon({ id, open }: { id: number; open: number }) {
         d="M19.5 8.25l-7.5 7.5-7.5-7.5"
       />
     </svg>
+  )
+}
+
+type MainAccordionProps = {
+  header: string
+  open: number
+  id: number
+  handleOpen: () => void
+  children: ReactNode
+}
+
+function MainAccordion({
+  id,
+  open,
+  header,
+  handleOpen,
+  children,
+}: MainAccordionProps) {
+  return (
+    <Accordion open={open === id} icon={<Icon id={id} open={open} />}>
+      <AccordionHeader
+        className="pb-1 text-lg font-medium"
+        onClick={handleOpen}
+      >
+        {header}
+      </AccordionHeader>
+      <AccordionBody>{children}</AccordionBody>
+    </Accordion>
   )
 }
