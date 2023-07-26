@@ -10,8 +10,19 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #414443;
   }
-  body{
+  body {
     font-family: 'Poppins', Arial, sans-serif;
+  }
+}
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    background: transparent;
+  }
+  .no-scrollbar::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+  .no-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: transparent;
   }
 }
 @tailwind base;
