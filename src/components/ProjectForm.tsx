@@ -1,6 +1,6 @@
 import {
   InformationCircleIcon,
-  PhotoIcon,
+  LinkIcon,
   PlusSmallIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
@@ -14,18 +14,15 @@ import {
   CardBody,
   CardFooter,
   Dialog,
-  Input,
   Option,
   Select,
   Spinner,
-  Textarea,
 } from '@material-tailwind/react'
 import { Fragment, useState } from 'react'
 import { api } from '~/utils/api'
 import { UploadImage } from './UploadImage'
 import { uploadImagesCloudinary } from '~/utils'
-import Image from 'next/image'
-import { IconButton } from './Button'
+import { MainInput, MainTextArea } from './Input'
 
 type ImageProps = {
   name: string
@@ -36,15 +33,18 @@ type ImageProps = {
 const STATE = ['PENDING', 'COMPLETED'] as const
 
 export function ProjectForm() {
-  const [openacc, setOpenacc] = useState(0)
+  const [openacc, setOpenacc] = useState(1)
   const handleOpenacc = (value: number) =>
     setOpenacc(openacc === value ? 0 : value)
   const [open, setOpen] = useState(false)
   const handleOpen = () => setOpen((cur) => !cur)
+
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
   const [images, setImages] = useState<ImageProps[]>([])
   const [state, setState] = useState<(typeof STATE)[number]>('PENDING')
+  const [goals, setGoals] = useState<string[]>()
+
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState({
     loading: false,
@@ -85,10 +85,7 @@ export function ProjectForm() {
         console.log(err)
       })
   }
-  function removeImage(index: number) {
-    const Images = images.filter((_img, i) => i !== index)
-    setImages(Images)
-  }
+
   return (
     <Fragment>
       <button
@@ -115,59 +112,62 @@ export function ProjectForm() {
               onChange={({ target }) => void setName(target.value)}
             />
           </header>
-          <CardBody className="flex gap-x-4">
-            <div className="w-3/4">
-              <Textarea
-                color="gray"
-                variant="standard"
+          <CardBody className="flex gap-x-10">
+            <div className="flex w-3/4 flex-col gap-y-2">
+              <MainTextArea
                 label="Description"
                 value={description}
                 onChange={({ target }) => void setDescription(target.value)}
+                placeholder="Writte your description here"
               />
-              <UploadImage images={images} setImages={setImages} />
+
               <Accordion
                 open={openacc === 1}
                 icon={<Icon id={1} open={openacc} />}
               >
-                <AccordionHeader onClick={() => handleOpenacc(1)}>
+                <AccordionHeader
+                  className="pb-1 text-lg font-medium"
+                  onClick={() => handleOpenacc(1)}
+                >
                   Images
                 </AccordionHeader>
                 <AccordionBody>
-                  <div className="my-3 flex flex-col gap-2">
-                    {images &&
-                      images.map((image, i) => (
-                        <PreviewImage
-                          key={i}
-                          id={i}
-                          remove={removeImage}
-                          {...image}
-                        />
-                      ))}
-                  </div>
+                  <UploadImage images={images} setImages={setImages} />
                 </AccordionBody>
               </Accordion>
               <Accordion
                 open={openacc === 2}
                 icon={<Icon id={2} open={openacc} />}
               >
-                <AccordionHeader onClick={() => handleOpenacc(2)}>
+                <AccordionHeader
+                  className="pb-1 text-lg font-medium"
+                  onClick={() => handleOpenacc(2)}
+                >
                   Goals
                 </AccordionHeader>
                 <AccordionBody>
-                  <Input variant="outlined" placeholder="+ add goal" />
+                  <form onSubmit={(evt) => 
+                    {
+                      evt.preventDefault()
+                      console.log('enter')}}>
+                    <MainInput label="" placeholder="add goal" />
+                  </form>
                 </AccordionBody>
               </Accordion>
               <Accordion
                 open={openacc === 3}
                 icon={<Icon id={3} open={openacc} />}
               >
-                <AccordionHeader onClick={() => handleOpenacc(3)}>
+                <AccordionHeader
+                  className="pb-1 text-lg font-medium"
+                  onClick={() => handleOpenacc(3)}
+                >
                   Tech Stack
                 </AccordionHeader>
                 <AccordionBody>
                   <div className="flex gap-4">
-                    <Input variant="outlined" placeholder="+ add tech" />
-                    <Input variant="outlined" placeholder="version" />
+                    <MainInput label="" placeholder="add tech" />
+                    <MainInput label="" placeholder="version" />
                   </div>
                 </AccordionBody>
               </Accordion>
@@ -175,15 +175,18 @@ export function ProjectForm() {
                 open={openacc === 4}
                 icon={<Icon id={4} open={openacc} />}
               >
-                <AccordionHeader onClick={() => handleOpenacc(4)}>
+                <AccordionHeader
+                  className="pb-1 text-lg font-medium"
+                  onClick={() => handleOpenacc(4)}
+                >
                   Contribuitors
                 </AccordionHeader>
                 <AccordionBody>
-                  <Input variant="outlined" placeholder="+ add contribuitors" />
+                  <MainInput label="" placeholder="add contribuitor" />
                 </AccordionBody>
               </Accordion>
             </div>
-            <div className="w-1/4">
+            <div className="relative w-1/4">
               <Select
                 color="gray"
                 value={state}
@@ -197,9 +200,28 @@ export function ProjectForm() {
                 <Option value="PENDING">Process</Option>
                 <Option value="COMPLETED">Completed</Option>
               </Select>
-              <p>Links</p>
-              <Input variant="static" color="black" placeholder="GitHub" />
-              <Input variant="static" color="black" placeholder="Deploy" />
+              <section className="mt-6">
+                <h3 className="flex items-center gap-1 text-lg">
+                  <LinkIcon className="h-5 w-5" /> Links
+                </h3>
+                <MainInput
+                  className="px-[.5rem] text-sm"
+                  label=""
+                  placeholder="GitHub"
+                />
+                <MainInput
+                  className="px-[.5rem] text-sm"
+                  label=""
+                  placeholder="Deploy"
+                />
+              </section>
+              <Button
+                className="absolute bottom-0 bg-primary shadow-primary hover:shadow-primary"
+                onClick={onCreate}
+                fullWidth
+              >
+                Add project
+              </Button>
             </div>
           </CardBody>
           <CardFooter className="flex flex-col items-center justify-center pt-0">
@@ -224,13 +246,6 @@ export function ProjectForm() {
               </Alert>
             )}
           </CardFooter>
-          <Button
-            className="absolute bottom-4 right-4 w-40 bg-primary shadow-primary hover:shadow-primary"
-            onClick={onCreate}
-            fullWidth
-          >
-            Add project
-          </Button>
         </Card>
       </Dialog>
     </Fragment>
@@ -255,33 +270,5 @@ function Icon({ id, open }: { id: number; open: number }) {
         d="M19.5 8.25l-7.5 7.5-7.5-7.5"
       />
     </svg>
-  )
-}
-
-type PreviewImageProps = {
-  id: number
-  name: string
-  image: string
-  remove: (index: number) => void
-}
-function PreviewImage({ name, image, remove, id }: PreviewImageProps) {
-  return (
-    <div className="flex items-center justify-between border-b pb-1">
-      <div className="group relative flex items-center gap-2">
-        <PhotoIcon className="h-5 w-5" /> {name}
-        <Card className="absolute bottom-[115%] left-0 hidden w-[300px] max-w-xs rounded p-2 hover:hidden group-hover:block">
-          <Image
-            src={image}
-            alt={name}
-            width={200}
-            height={150}
-            className="h-auto w-full"
-          />
-        </Card>
-      </div>
-      <button onClick={() => remove(id)}>
-        <IconButton Icon={XMarkIcon} className="hover:text-red-400" />
-      </button>
-    </div>
   )
 }
