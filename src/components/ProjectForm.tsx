@@ -1,4 +1,4 @@
-import type { ReactNode, Dispatch, SetStateAction } from 'react'
+import type { ReactNode } from 'react'
 
 import {
   InformationCircleIcon,
@@ -141,8 +141,11 @@ export function ProjectForm() {
                 <MainInput
                   label=""
                   placeholder="add goal"
-                  onKeyDown={({ code }) => console.log(code)}
+                  onKeyDown={({ code, target }) =>
+                    code === 'Enter' && setGoals([...goals, target.value])
+                  }
                 />
+                {goals && goals.map((ele, i) => <p key={i}>{ele}</p>)}
               </MainAccordion>
 
               <MainAccordion
