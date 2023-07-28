@@ -25,6 +25,7 @@ import { api } from '~/utils/api'
 import { UploadImage } from './UploadImage'
 import { uploadImagesCloudinary } from '~/utils'
 import { MainInput, MainTextArea } from './Input'
+import { TextAreaAuto } from './TextArea'
 
 type ImageProps = {
   name: string
