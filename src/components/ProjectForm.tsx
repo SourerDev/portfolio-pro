@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import type { KeyboardEvent, ReactNode } from 'react'
 
 import {
   InformationCircleIcon,
@@ -33,7 +33,10 @@ type ImageProps = {
 }
 
 const STATE = ['PENDING', 'COMPLETED'] as const
-
+type Goals = {
+  current: string
+  values: string[]
+}
 export function ProjectForm() {
   const [openacc, setOpenacc] = useState(1)
   const handleOpenacc = (value: number) =>
@@ -45,7 +48,10 @@ export function ProjectForm() {
   const [description, setDescription] = useState('')
   const [images, setImages] = useState<ImageProps[]>([])
   const [state, setState] = useState<(typeof STATE)[number]>('PENDING')
-  const [goals, setGoals] = useState<string[]>()
+  const [goals, setGoals] = useState<Goals>({
+    current: '',
+    values: [],
+  })
 
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState({
@@ -88,6 +94,15 @@ export function ProjectForm() {
       })
   }
 
+  function addGoal({ code }: KeyboardEvent<HTMLInputElement>) {
+    if (code === 'Enter') {
+      if (!goals?.current) return
+
+      setGoals((prev) => ({ ...prev, values: [goals.current, ...prev.values] }))
+      setGoals((prev) => ({ ...prev, current: '' }))
+      console.log(goals.current)
+    }
+  }
   return (
     <Fragment>
       <button
@@ -141,11 +156,14 @@ export function ProjectForm() {
                 <MainInput
                   label=""
                   placeholder="add goal"
-                  onKeyDown={({ code, target }) =>
-                    code === 'Enter' && setGoals([...goals, target.value])
+                  value={goals.current}
+                  onChange={({ target }) =>
+                    setGoals((prev) => ({ ...prev, current: target.value }))
                   }
+                  onKeyDown={addGoal}
                 />
-                {goals && goals.map((ele, i) => <p key={i}>{ele}</p>)}
+                {goals?.values &&
+                  goals.values.map((ele, i) => <p key={i}>{ele}</p>)}
               </MainAccordion>
 
               <MainAccordion
