@@ -161,10 +161,23 @@ export function ProjectListClient({
   )
 }
 
-function ProjectCardClient({ name }: Project) {
+function ProjectCardClient({ name, images }: Project) {
   return (
-    <Card className="rounded-sm bg-bg-primary dark:text-bg-primary dark:bg-bg-primary-dk dark:shadow-accent">
-      <CardBody>{name}</CardBody>
+    <Card className="relative rounded-sm bg-bg-primary dark:bg-bg-primary-dk dark:text-bg-primary dark:shadow-accent">
+      <CardBody className="group p-0">
+        <Image
+          className="h-full w-full"
+          src={images[0] || ''}
+          alt="Image"
+          height={1000}
+          width={1000}
+        />
+        <div className="absolute inset-0 h-full w-full transition-all group-hover:bg-gray-500/50 group-hover:backdrop-blur-sm">
+          <p className="invisible text-xl font-semibold text-accent group-hover:visible">
+            {name}
+          </p>
+        </div>
+      </CardBody>
     </Card>
   )
 }

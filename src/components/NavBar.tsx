@@ -23,7 +23,7 @@ export function NavBar() {
     <Navbar className="sticky top-0 z-50 mx-auto max-w-5xl rounded-none border-none bg-bg-primary px-6 py-3 dark:bg-bg-primary-dk">
       <div className="flex items-center justify-between text-blue-gray-900 dark:text-text-primary-dk">
         <Link href="/">
-          <Typography variant="h6" className="mr-4 cursor-pointer py-1.5">
+          <Typography variant="h6" className="mr-4 cursor-pointer py-1.5 text-primary">
             Sourer Dev
           </Typography>
         </Link>

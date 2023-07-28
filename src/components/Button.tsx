@@ -70,11 +70,11 @@ export function LinkTo({
   href = '',
   ...props
 }: LinkToProps) {
-  const classname = `flex items-center gap-2 rounded-sm px-8 py-2 font-medium hover:scale-105 hover:shadow-md
+  const classname = `flex items-center gap-2 rounded-sm px-8 py-2 font-medium hover:scale-105
   ${
     type === 'primary'
-      ? 'bg-primary text-bg-primary shadow-primary'
-      : 'bg-secondary text-text-primary'
+      ? 'bg-primary text-bg-primary shadow-primary hover:shadow-sm hover:shadow-primary'
+      : 'bg-secondary text-text-primary hover:shadow-md'
   }
   ${className}`
   return local ? (

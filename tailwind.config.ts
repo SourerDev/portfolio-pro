@@ -7,18 +7,15 @@ export default withMT({
   theme: {
     extend: {
       colors: {
-        'bg-primary': '#fafafa',
-        'bg-secondary': '#ededed',
-        'text-primary': '#070808',
-        'primary': '#414443',
-        'secondary': '#e6e5e6',
-        'accent': '#100f0f',
-        'bg-primary-dk': '#1e1e1e',
-        'bg-secondary-dk': '#ededed',
-        'text-primary-dk': '#fafafa',
-        'primary-dk': '#414443',
-        'secondary-dk': '#e6e5e6',
-        'accent-dk': '#100f0f',
+        'primary': '#009e66',
+        'secondary': '#ddf4eb',
+        'text': '#1e1e1e',
+        'background': '#fafafa',
+        'accent': '#1b503d',
+        'secondary-dk': '#0e2b20',
+        'text-dk': '#fafafa',
+        'background-dk': '#1e1e1e',
+        'accent-dk': '#44c093',
       }
     },
   },
