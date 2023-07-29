@@ -16,10 +16,10 @@ export function MainContainer({
   footer = true,
 }: MainContainerProps) {
   return (
-    <div className="relative h-screen w-full min-w-[390px] overflow-y-scroll bg-bg-primary dark:bg-bg-primary-dk">
+    <div className="relative h-screen w-full min-w-[390px] overflow-y-scroll bg-background dark:bg-background-dk">
       {typeof header === 'boolean' && header ? <NavBar /> : header}
       <div
-        className={`mx-auto min-h-screen max-w-5xl bg-bg-primary p-6 text-text-primary dark:bg-bg-primary-dk dark:text-text-primary-dk ${className}`}
+        className={`mx-auto min-h-screen max-w-5xl  p-6 text-text dark:text-text-dk ${className}`}
       >
         {children}
       </div>
