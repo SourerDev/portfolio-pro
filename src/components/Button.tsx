@@ -40,12 +40,12 @@ export function ThemeMode() {
   return (
     <button
       onClick={() => (theme == 'dark' ? setTheme('light') : setTheme('dark'))}
-      className=""
+      className="group hover:text-primary "
     >
       {theme == 'dark' ? (
-        <SunIcon className="h-6 w-6" />
+        <SunIcon className="group-hover:stroke-2 h-6 w-6" />
       ) : (
-        <MoonIcon className="h-5 w-5" />
+        <MoonIcon className="group-hover:stroke-2 h-5 w-5" />
       )}
     </button>
   )
@@ -73,12 +73,14 @@ export function LinkTo({
   const classname = `flex items-center gap-2 rounded-sm px-8 py-2 font-medium hover:scale-105
   ${
     type === 'primary'
-      ? 'bg-primary text-bg-primary shadow-primary hover:shadow-sm hover:shadow-primary'
-      : 'bg-secondary text-text-primary hover:shadow-md'
+      ? 'bg-primary text-text-dk shadow-primary hover:shadow-sm hover:shadow-primary'
+      : 'bg-secondary text-text-primary hover:shadow-md dark:bg-secondary-dk'
   }
   ${className}`
   return local ? (
-    <Link className={classname} href={href}>{children}</Link>
+    <Link className={classname} href={href}>
+      {children}
+    </Link>
   ) : (
     <a className={classname} href={href} {...props}>
       {children}

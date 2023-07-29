@@ -33,7 +33,7 @@ export default function Home() {
           </div>
           <div className="md:w-3/4">
             <Typography variant="h3">Hello</Typography>
-            <Typography variant="h1">I&lsquo;m Yhonier</Typography>
+            <Typography variant="h1" className="text-primary">I&lsquo;m Yhonier</Typography>
             <Typography variant="h4">Frontend Developer</Typography>
             <div className="mt-5 ">
               <Typography variant="paragraph">

@@ -20,10 +20,13 @@ export function NavBar() {
   }, [])
 
   return (
-    <Navbar className="sticky top-0 z-50 mx-auto max-w-5xl rounded-none border-none bg-bg-primary px-6 py-3 dark:bg-bg-primary-dk">
-      <div className="flex items-center justify-between text-blue-gray-900 dark:text-text-primary-dk">
+    <Navbar className="sticky top-0 z-50 mx-auto max-w-5xl rounded-none border-none bg-background px-6 py-3 dark:bg-background-dk">
+      <div className="flex items-center justify-between text-text dark:text-text-dk">
         <Link href="/">
-          <Typography variant="h6" className="mr-4 cursor-pointer py-1.5 text-primary">
+          <Typography
+            variant="h6"
+            className="mr-4 cursor-pointer py-1.5 text-primary"
+          >
             Sourer Dev
           </Typography>
         </Link>
@@ -56,7 +59,7 @@ function NavList() {
       <Typography as="li" variant="small" className="p-1 font-medium">
         <Link
           href="/projects"
-          className="flex items-center transition-colors hover:text-blue-500"
+          className="flex items-center transition-colors hover:font-medium hover:text-primary"
         >
           Projects
         </Link>
@@ -64,7 +67,7 @@ function NavList() {
       <Typography as="li" variant="small" className="p-1 font-medium">
         <Link
           href="/contact"
-          className="flex items-center transition-colors hover:text-blue-500"
+          className="flex items-center transition-colors hover:font-medium hover:text-primary"
         >
           Contact me
         </Link>

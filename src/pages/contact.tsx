@@ -47,7 +47,7 @@ export default function ContactMe() {
               onChange={({ target }) => setMessage(target.value)}
             />
           </div>
-          <button className="group flex items-center gap-2 self-end rounded-md bg-primary py-3 pl-4 pr-5 font-medium text-bg-primary hover:scale-105 hover:shadow-md">
+          <button className="group flex items-center gap-2 self-end rounded-md bg-primary py-3 pl-4 pr-5 font-medium text-text-dk hover:scale-105 hover:shadow-md">
             <PaperAirplaneIcon className="h-5 w-5 " />
             Send
           </button>
