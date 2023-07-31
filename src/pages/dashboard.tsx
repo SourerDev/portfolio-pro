@@ -31,7 +31,7 @@ export default function Dashboard() {
         header={false}
         footer={false}
       >
-        <div className="rounded  px-4 py-4 shadow-md dark:shadow-accent ">
+        <div className="rounded  px-4 py-4 shadow-md dark:shadow-black ">
           <header className="flex items-center justify-between gap-x-2 border-b pb-3">
             <span className="flex items-center gap-x-2">
               <GoBack>
@@ -45,7 +45,7 @@ export default function Dashboard() {
           </header>
           <NavList current={current} setCurrent={setCurrent} />
         </div>
-        <main className="relative w-full overflow-y-hidden rounded  p-4 shadow-md dark:shadow-accent">
+        <main className="relative w-full overflow-y-hidden rounded  p-4 shadow-md dark:shadow-black">
           <Typography variant="h6" className="absolute right-6 top-6">
             Alegria Dev
           </Typography>
@@ -72,8 +72,8 @@ export function NavList({ current, setCurrent }: NavListProps) {
   return (
     <List>
       <ListItem
-        className={`dark:text-bg-secondary dark:hover:bg-accent ${
-          current === 'projects' ? 'font-semibold' : ''
+        className={`dark:text-text-dk dark:hover:bg-accent ${
+          current === 'projects' ? 'font-semibold text-primary' : ''
         }`}
         onClick={() => setCurrent('projects')}
       >
@@ -83,8 +83,8 @@ export function NavList({ current, setCurrent }: NavListProps) {
         Projects
       </ListItem>
       <ListItem
-        className={`dark:text-bg-secondary dark:hover:bg-accent ${
-          current === 'profile' ? 'font-semibold' : ''
+        className={`dark:text-text-dk dark:hover:bg-accent ${
+          current === 'profile' ? 'font-semibold text-primary' : ''
         }`}
         onClick={() => setCurrent('profile')}
       >
@@ -93,7 +93,7 @@ export function NavList({ current, setCurrent }: NavListProps) {
         </ListItemPrefix>
         Profile
       </ListItem>
-      <ListItem className="dark:text-bg-secondary dark:hover:bg-accent">
+      <ListItem className="dark:text-text-dk dark:hover:bg-accent">
         <ListItemPrefix>
           <PowerIcon className="h-5 w-5" />
         </ListItemPrefix>
@@ -115,7 +115,7 @@ export function Projects() {
         <ul className="space-x-3">
           {TABS.map((tab) => (
             <button
-              className={`px-4 py-2 text-center hover:bg-bg-secondary dark:hover:bg-accent ${
+              className={`hover:bg-bg-secondary px-4 py-2 text-center dark:hover:bg-accent ${
                 tab === selected
                   ? 'border-b-2 border-primary font-semibold'
                   : ''
@@ -128,7 +128,7 @@ export function Projects() {
           ))}
         </ul>
         <span className="grid place-content-center">
-          <AdjustmentsHorizontalIcon className="h-7 w-7 cursor-pointer stroke-primary hover:stroke-accent dark:hover:stroke-bg-primary" />
+          <AdjustmentsHorizontalIcon className="dark:hover:stroke-bg-primary h-7 w-7 cursor-pointer stroke-primary hover:stroke-accent" />
         </span>
       </div>
       <ProjectList
