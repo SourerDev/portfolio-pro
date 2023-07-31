@@ -53,16 +53,19 @@ export function ProjectList({
 
 function ProjectCard({ images, name, state, description, id }: Project) {
   return (
-    <Card className="relative h-[150px] w-[200px] overflow-hidden rounded bg-bg-primary">
+    <Card className="relative h-[150px] w-[200px] overflow-hidden rounded">
       <Image
-        className="h-full w-full"
+        className="h-full w-full object-cover object-center"
         src={images[0] || ''}
         alt="la imagen"
         width={200}
         height={150}
       />
-      <CardBody className="absolute inset-0 grid place-content-center bg-primary/50">
-        <Typography variant="h3" className="text-gray-200">
+      <CardBody className="absolute inset-0 grid place-content-center bg-black/50">
+        <Typography
+          variant="h3"
+          className={`text-gray-200 ${name.length > 10 ? 'text-xl' : ''}`}
+        >
           {name}
         </Typography>
         <div className="absolute bottom-1 right-0 flex w-full items-center justify-between px-1.5">
@@ -100,7 +103,7 @@ function PreviewProject({ name, description, images }: Project) {
         handler={handleOpen}
         className="bg-transparent shadow-none"
       >
-        <Card className="relative mx-auto max-h-[95vh] min-h-full overflow-y-scroll rounded-none bg-bg-primary pt-6 dark:bg-bg-primary-dk dark:text-secondary">
+        <Card className="bg-bg-primary dark:bg-bg-primary-dk relative mx-auto max-h-[95vh] min-h-full overflow-y-scroll rounded-none pt-6 dark:text-secondary">
           <button onClick={handleOpen} className="absolute right-5 top-5">
             <XMarkIcon className=" h-8 w-8 hover:text-red-700" />
           </button>
@@ -163,7 +166,7 @@ export function ProjectListClient({
 
 function ProjectCardClient({ name, images }: Project) {
   return (
-    <Card className="relative rounded-sm bg-bg-primary dark:bg-bg-primary-dk dark:text-bg-primary dark:shadow-accent">
+    <Card className="bg-bg-primary dark:bg-bg-primary-dk dark:text-bg-primary relative rounded-sm dark:shadow-accent">
       <CardBody className="group p-0">
         <Image
           className="h-full w-full"
@@ -172,7 +175,7 @@ function ProjectCardClient({ name, images }: Project) {
           height={1000}
           width={1000}
         />
-        <div className="absolute inset-0 h-full w-full transition-all group-hover:bg-black/50 flex items-center justify-center">
+        <div className="absolute inset-0 flex h-full w-full items-center justify-center transition-all group-hover:bg-black/50">
           <p className="invisible text-xl font-semibold text-text-dk group-hover:visible">
             {name}
           </p>

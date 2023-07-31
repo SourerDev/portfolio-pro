@@ -108,7 +108,7 @@ export function ProjectForm() {
     <Fragment>
       <button
         onClick={handleOpen}
-        className="flex h-[150px] w-[200px] flex-col items-center justify-center gap-5 rounded-sm bg-secondary text-base text-text-primary hover:scale-105 hover:font-medium hover:shadow-sm hover:shadow-secondary dark:shadow-accent"
+        className="flex h-[150px] w-[200px] flex-col items-center justify-center gap-5 rounded-sm bg-gray-200 text-base hover:scale-105 hover:font-medium hover:shadow-sm hover:shadow-secondary dark:shadow-accent"
       >
         <PlusSmallIcon className="h-9 w-9" /> Add project
       </button>
