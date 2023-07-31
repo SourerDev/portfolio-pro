@@ -172,8 +172,8 @@ function ProjectCardClient({ name, images }: Project) {
           height={1000}
           width={1000}
         />
-        <div className="absolute inset-0 h-full w-full transition-all group-hover:bg-gray-500/50 group-hover:backdrop-blur-sm">
-          <p className="invisible text-xl font-semibold text-accent group-hover:visible">
+        <div className="absolute inset-0 h-full w-full transition-all group-hover:bg-black/50 flex items-center justify-center">
+          <p className="invisible text-xl font-semibold text-text-dk group-hover:visible">
             {name}
           </p>
         </div>
