@@ -124,7 +124,7 @@ export function ProjectForm() {
           </button>
           <header className="mx-6 mt-4">
             <input
-              className="text-2xl font-semibold text-text-primary outline-none placeholder:text-text-primary focus:placeholder:text-gray-400 dark:bg-transparent"
+              className="text-text-primary placeholder:text-text-primary text-2xl font-semibold outline-none focus:placeholder:text-gray-400 dark:bg-transparent"
               placeholder="Add project"
               value={name}
               onChange={({ target }) => void setName(target.value)}
