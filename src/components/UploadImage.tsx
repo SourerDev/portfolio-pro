@@ -5,7 +5,7 @@ import {
 } from '@heroicons/react/24/outline'
 import { Card } from '@material-tailwind/react'
 import Image from 'next/image'
-import type { Dispatch, SetStateAction } from 'react'
+import type { ChangeEvent, Dispatch, SetStateAction } from 'react'
 import { IconButton } from './Button'
 
 type ImageProps = {
@@ -22,36 +22,44 @@ export function UploadImage({ images, setImages }: UploadImageProps) {
     const Images = images.filter((_img, i) => i !== index)
     setImages(Images)
   }
+
+  function handleImages({ target }: ChangeEvent<HTMLInputElement>) {
+    const files = target.files
+    if (!files) return
+
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i]
+      if (!file) continue
+
+      const reader = new FileReader()
+      reader.onload = () => {
+        setImages((cur) => [
+          ...cur,
+          {
+            name: file.name,
+            image: typeof reader.result === 'string' ? reader.result : '',
+            file: file,
+          },
+        ])
+      }
+      reader.readAsDataURL(file)
+    }
+  }
   return (
     <>
-      <div className="group relative grid place-content-center border border-dashed p-4 hover:border-primary hover:bg-bg-secondary/50">
+      <div className="hover:bg-bg-secondary/50 group relative grid place-content-center border border-dashed p-4 hover:border-primary">
         <input
           id="upload-image"
           className="absolute left-0 top-0 h-full w-full cursor-pointer opacity-0 outline-none"
           title=""
           type="file"
           accept="image/*"
-          onChange={({ target }) => {
-            const file = target.files && target.files[0]
-            if (!file) return
-
-            const reader = new FileReader()
-            reader.onload = () => {
-              setImages((cur) => [
-                ...cur,
-                {
-                  name: file.name,
-                  image: typeof reader.result === 'string' ? reader.result : '',
-                  file: file,
-                },
-              ])
-            }
-            reader.readAsDataURL(file)
-          }}
+          onChange={handleImages}
+          multiple={true}
         />
         <label
           htmlFor="upload-image"
-          className="flex gap-x-3 group-hover:text-text-primary"
+          className="group-hover:text-text-primary flex gap-x-3"
         >
           <PlusSmallIcon className="group-hover:bg<-text-primary h-6 w-6 rounded-full bg-primary stroke-white stroke-2 p-1" />
           <span>Add image</span>
