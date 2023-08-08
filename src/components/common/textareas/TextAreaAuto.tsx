@@ -36,7 +36,7 @@ export function TextAreaAuto({
 
   return (
     <textarea
-      className={`flex-grow resize-none overflow-hidden p-4 text-lg outline-none ${className}`}
+      className={`flex-grow resize-none overflow-hidden text-lg outline-none my-4 ${className}`}
       ref={inputRef}
       value={value}
       style={{ height: 0 }}
