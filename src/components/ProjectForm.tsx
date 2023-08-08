@@ -1,6 +1,6 @@
 import type { KeyboardEvent, ReactNode } from 'react'
 
-import { LinkIcon, PlusSmallIcon } from '@heroicons/react/24/outline'
+import { LinkIcon, PlusSmallIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import {
   Accordion,
   AccordionBody,
@@ -16,6 +16,7 @@ import { uploadImagesCloudinary } from '~/utils'
 import { MainInput } from './Input'
 import { DialogModal } from './common/modal'
 import { TextAreaAuto } from './common/textareas/TextAreaAuto'
+import { IconButton } from './Button'
 
 type ImageProps = {
   name: string
@@ -81,6 +82,12 @@ export function ProjectForm() {
       console.log(goals.current)
     }
   }
+  function removeGoal(id: number) {
+    setGoals((cur) => ({
+      ...cur,
+      values: goals.values.filter((_x, i) => i !== id),
+    }))
+  }
   return (
     <DialogModal
       button={
@@ -117,7 +124,18 @@ export function ProjectForm() {
             }
             onKeyDown={addGoal}
           />
-          {goals?.values && goals.values.map((ele, i) => <p key={i}>{ele}</p>)}
+          {goals?.values &&
+            goals.values.map((ele, i) => (
+              <div
+                key={i}
+                className="flex items-center justify-between pb-1"
+              >
+                <p className="">{ele}</p>
+                <button onClick={() => removeGoal(i)}>
+                  <IconButton Icon={XMarkIcon} className="hover:text-red-400" />
+                </button>
+              </div>
+            ))}
         </section>
         <section className="flex w-1/4 flex-col justify-between gap-y-4">
           <div>
