@@ -63,6 +63,8 @@ export function ProjectForm() {
           description: projectInfo.description,
           state: projectInfo.state === 'PENDING' ? 'PENDING' : 'COMPLETED',
           goals: goals.values,
+          github: links.github,
+          deploy: links.deploy,
         })
       })
       .catch((err) => {
@@ -115,7 +117,7 @@ export function ProjectForm() {
             }
             onKeyDown={addGoal}
           />
-          {goals?.values && goals.values.map((ele, i) => <p key={i}>{ele}</p>)}p
+          {goals?.values && goals.values.map((ele, i) => <p key={i}>{ele}</p>)}
         </section>
         <section className="flex w-1/4 flex-col justify-between gap-y-4">
           <div>
