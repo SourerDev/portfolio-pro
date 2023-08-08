@@ -9,7 +9,8 @@ export const projectRouter = createTRPCRouter({
   create: protectedProcedure.input(z.object({
     name: z.string(), description: z.string(),
     images: z.array(z.string()),
-    state: z.enum(['PENDING', 'COMPLETED']) 
+    state: z.enum(['PENDING', 'COMPLETED']),
+    goals: z.string().array()
   })).mutation(async ({ input: { name, description, state, images }, ctx }) => {
     const project = await ctx.prisma.project.create({ data: { name, images, description, state } })
     return project
@@ -21,5 +22,6 @@ interface Project {
   name: string
   description: string
   images: string[]
+  goals: string[]
   state: string
 }
