@@ -154,7 +154,7 @@ export function ProjectListClient({
   )
 }
 
-function ProjectCardClient({ name, images }: Project) {
+function ProjectCardClient({ name, images, ...props }: Project) {
   return (
     <Card className="bg-bg-primary dark:bg-bg-primary-dk dark:text-bg-primary relative rounded-sm dark:shadow-accent">
       <CardBody className="group p-0">
@@ -169,6 +169,7 @@ function ProjectCardClient({ name, images }: Project) {
           <p className="invisible text-xl font-semibold text-text-dk group-hover:visible">
             {name}
           </p>
+          <PreviewProject name={name} images={images} {...props} />
         </div>
       </CardBody>
     </Card>
