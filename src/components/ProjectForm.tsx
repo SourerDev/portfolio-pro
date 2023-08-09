@@ -14,7 +14,7 @@ import { api } from '~/utils/api'
 import { UploadImage } from './UploadImage'
 import { uploadImagesCloudinary } from '~/utils'
 import { MainInput } from './Input'
-import { DialogModal } from './common/modal'
+import { DialogModal } from './common/modals/modal'
 import { TextAreaAuto } from './common/textareas/TextAreaAuto'
 import { IconButton } from './Button'
 

@@ -16,7 +16,7 @@ import Image from 'next/image'
 import { ProjectForm } from './ProjectForm'
 import { IconButton } from './Button'
 import { Fragment, useState } from 'react'
-import { DialogModal } from './common/modal'
+import { DialogModal } from './common/modals/modal'
 
 type Project = {
   id: string
@@ -146,7 +146,7 @@ export function ProjectListClient({
 
   if (!projects?.length) return <h2>No projects</h2>
   return (
-    <div className="grid grid-cols-2 gap-4 ">
+    <div className="grid grid-cols-2 gap-4">
       {projects?.map((project) => (
         <ProjectCardClient key={project.id} {...project} />
       ))}
@@ -169,7 +169,9 @@ function ProjectCardClient({ name, images, ...props }: Project) {
           <p className="invisible text-xl font-semibold text-text-dk group-hover:visible">
             {name}
           </p>
-          <PreviewProject name={name} images={images} {...props} />
+          <span className="invisible absolute right-3 top-3 group-hover:visible">
+            <PreviewProject name={name} images={images} {...props} />
+          </span>
         </div>
       </CardBody>
     </Card>
