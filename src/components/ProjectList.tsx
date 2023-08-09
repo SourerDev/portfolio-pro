@@ -16,6 +16,7 @@ import Image from 'next/image'
 import { ProjectForm } from './ProjectForm'
 import { IconButton } from './Button'
 import { Fragment, useState } from 'react'
+import { DialogModal } from './common/modal'
 
 type Project = {
   id: string
@@ -91,59 +92,48 @@ function ProjectCard({ images, name, state, description, id }: Project) {
 }
 
 function PreviewProject({ name, description, images }: Project) {
-  const [open, setOpen] = useState(false)
-  const handleOpen = () => setOpen((cur) => !cur)
-
   return (
-    <Fragment>
-      <IconButton onClick={handleOpen} Icon={ArrowTopRightOnSquareIcon} />
-      <Dialog
-        size="xl"
-        open={open}
-        handler={handleOpen}
-        className="bg-transparent shadow-none"
-      >
-        <Card className="bg-bg-primary dark:bg-bg-primary-dk relative mx-auto max-h-[95vh] min-h-full overflow-y-scroll rounded-none pt-6 dark:text-secondary">
-          <button onClick={handleOpen} className="absolute right-5 top-5">
-            <XMarkIcon className=" h-8 w-8 hover:text-red-700" />
-          </button>
-          <CardBody>
-            <Typography variant="h3">{name}</Typography>
-            <div className="mt-2 flex gap-6">
-              <Carousel
-                className="max-w-[450px] rounded-xl"
-                navigation={({ setActiveIndex, activeIndex, length }) => (
-                  <div className="absolute bottom-4 left-2/4 z-50 flex -translate-x-2/4 gap-2">
-                    {new Array(length).fill('').map((_, i) => (
-                      <span
-                        key={i}
-                        className={`block h-1 cursor-pointer rounded-2xl bg-blend-difference transition-all content-[''] ${
-                          activeIndex === i ? 'w-8 bg-white' : 'w-4 bg-white/50'
-                        }`}
-                        onClick={() => setActiveIndex(i)}
-                      />
-                    ))}
-                  </div>
-                )}
-              >
-                {images.map((image, i) => (
-                  <img
+    <DialogModal button={<IconButton Icon={ArrowTopRightOnSquareIcon} />}>
+      <Typography variant="h3">{name}</Typography>
+      <div className="flex gap-x-10">
+        <section className="flex w-3/4 flex-col gap-y-2">
+          <Carousel
+            className="max-w-[450px] rounded-xl"
+            navigation={({ setActiveIndex, activeIndex, length }) => (
+              <div className="absolute bottom-4 left-2/4 z-50 flex -translate-x-2/4 gap-2">
+                {new Array(length).fill('').map((_, i) => (
+                  <span
                     key={i}
-                    className="h-full w-full"
-                    src={image || ''}
-                    alt="la imagen"
-                    width={200}
-                    height={150}
+                    className={`block h-1 cursor-pointer rounded-2xl bg-blend-difference transition-all content-[''] ${
+                      activeIndex === i ? 'w-8 bg-white' : 'w-4 bg-white/50'
+                    }`}
+                    onClick={() => setActiveIndex(i)}
                   />
                 ))}
-              </Carousel>
-              <p>{description}</p>
-            </div>
-          </CardBody>
-        </Card>
-      </Dialog>
-    </Fragment>
+              </div>
+            )}
+          >
+            {images.map((image, i) => (
+              <img
+                key={i}
+                className="h-full w-full"
+                src={image || ''}
+                alt="la imagen"
+                width={200}
+                height={150}
+              />
+            ))}
+          </Carousel>
+          <p>{description}</p>
+        </section>
+        <section className="flex w-1/4 flex-col gap-y-4">
+          Link to github and deploy
+        </section>
+      </div>
+    </DialogModal>
   )
+  {
+  }
 }
 
 export function ProjectListClient({
