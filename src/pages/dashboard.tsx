@@ -18,9 +18,23 @@ import { useState, type Dispatch, type SetStateAction } from 'react'
 import { api } from '~/utils/api'
 import { ProjectList } from '~/components/ProjectList'
 import { ThemeMode } from '~/components/Button'
+import { LoginAdmin } from '~/modules/auth/LoginAdmin'
 
 export default function Dashboard() {
+  const [login, setlogin] = useState(false)
+  const handleLogin = () => setlogin(true)
   const [current, setCurrent] = useState('projects')
+
+  if (!login)
+    return (
+      <ContainerPage
+        className="grid place-content-center"
+        footer={false}
+        header={false}
+      >
+        <LoginAdmin callback={handleLogin} />
+      </ContainerPage>
+    )
   return (
     <>
       <Head>
