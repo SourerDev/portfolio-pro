@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { LinkTo } from '~/components/Button'
 import { GitHubIcon, LinkedInIcon, TwitterIcon } from '~/components/Icons'
-import { MainContainer } from '~/components/Main'
+import { ContainerPage } from '~/components/container_page'
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
         <meta name="description" content="Frontend Developer" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <MainContainer className="overflow-hidden">
+      <ContainerPage className="overflow-hidden">
         <main className="flex min-h-[90vh] flex-col justify-around gap-4 md:flex-row-reverse md:items-center md:justify-between">
           <div className="relative md:h-[240px] md:w-1/4">
             <Image
@@ -33,7 +33,9 @@ export default function Home() {
           </div>
           <div className="md:w-3/4">
             <Typography variant="h3">Hello</Typography>
-            <Typography variant="h1" className="text-primary">I&lsquo;m Yhonier</Typography>
+            <Typography variant="h1" className="text-primary">
+              I&lsquo;m Yhonier
+            </Typography>
             <Typography variant="h4">Frontend Developer</Typography>
             <div className="mt-5 ">
               <Typography variant="paragraph">
@@ -91,7 +93,7 @@ export default function Home() {
             </div>
           </div>
         </main>
-      </MainContainer>
+      </ContainerPage>
     </>
   )
 }

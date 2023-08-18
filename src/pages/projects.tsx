@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { MainContainer } from '~/components/Main'
+import { ContainerPage } from '~/components/container_page'
 import { ProjectListClient } from '~/components/ProjectList'
 import { api } from '~/utils/api'
 
@@ -13,7 +13,7 @@ export default function ProjectsPage() {
         <meta name="description" content="Frontend Developer" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <MainContainer>
+      <ContainerPage>
         <main className="min-h-[90vh]">
           <ProjectListClient
             projects={projects.data}
@@ -21,7 +21,7 @@ export default function ProjectsPage() {
             isLoading={projects.isLoading}
           />
         </main>
-      </MainContainer>
+      </ContainerPage>
     </>
   )
 }

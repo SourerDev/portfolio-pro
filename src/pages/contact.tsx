@@ -3,7 +3,7 @@ import { Typography } from '@material-tailwind/react'
 import Head from 'next/head'
 import { useState } from 'react'
 import { MainInput, MainTextArea } from '~/components/Input'
-import { MainContainer } from '~/components/Main'
+import { ContainerPage } from '~/components/container_page'
 
 export default function ContactMe() {
   const [name, setName] = useState('')
@@ -17,7 +17,7 @@ export default function ContactMe() {
         <meta name="description" content="Frontend Developer" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <MainContainer>
+      <ContainerPage>
         <main className="flex min-h-[90vh] flex-col justify-center">
           <Typography variant="h1">Contact me</Typography>
 
@@ -52,7 +52,7 @@ export default function ContactMe() {
             Send
           </button>
         </main>
-      </MainContainer>
+      </ContainerPage>
     </>
   )
 }

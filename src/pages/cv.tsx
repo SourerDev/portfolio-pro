@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { MainContainer } from '~/components/Main'
+import { ContainerPage } from '~/components/container_page'
 
 export default function CvPage() {
   return (
@@ -9,7 +9,7 @@ export default function CvPage() {
         <meta name="description" content="Frontend Developer" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <MainContainer>cv</MainContainer>
+      <ContainerPage>cv</ContainerPage>
     </>
   )
 }

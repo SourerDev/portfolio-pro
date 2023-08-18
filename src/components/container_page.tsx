@@ -2,19 +2,19 @@ import type { ReactNode } from 'react'
 import { NavBar } from './NavBar'
 import { Footer } from './Footer'
 
-type MainContainerProps = {
+type ContainerPageProps = {
   className?: string
   children: ReactNode
   footer?: ReactNode | boolean
   header?: ReactNode | boolean
 }
 
-export function MainContainer({
+export function ContainerPage({
   className = '',
   children,
   header = true,
   footer = true,
-}: MainContainerProps) {
+}: ContainerPageProps) {
   return (
     <div className="relative h-screen w-full min-w-[390px] overflow-y-scroll bg-background dark:bg-background-dk">
       {typeof header === 'boolean' && header ? <NavBar /> : header}

@@ -13,7 +13,7 @@ import {
 } from '@material-tailwind/react'
 import Head from 'next/head'
 import { GoBack } from '~/components/GoBack'
-import { MainContainer } from '~/components/Main'
+import { ContainerPage } from '~/components/container_page'
 import { useState, type Dispatch, type SetStateAction } from 'react'
 import { api } from '~/utils/api'
 import { ProjectList } from '~/components/ProjectList'
@@ -26,7 +26,7 @@ export default function Dashboard() {
       <Head>
         <title>Dashboard | Porfolio</title>
       </Head>
-      <MainContainer
+      <ContainerPage
         className="flex max-w-7xl gap-x-3 py-2"
         header={false}
         footer={false}
@@ -59,7 +59,7 @@ export default function Dashboard() {
             {current === 'profile' && <Profile />}
           </div>
         </main>
-      </MainContainer>
+      </ContainerPage>
     </>
   )
 }
