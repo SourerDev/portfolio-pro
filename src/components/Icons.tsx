@@ -1,14 +1,27 @@
-type iconProps = {
-  className?: string
+type IconProps = {
+  icon: 'LinkedIn' | 'Twitter' | 'GitHub'
 }
 
-export function LinkedInIcon({ className = '' }: iconProps) {
+export function Icon({ icon }: IconProps) {
+  return (
+    <i className="h-6 w-6">
+      {icon === 'LinkedIn' ? (
+        <LinkedInIcon />
+      ) : icon === 'Twitter' ? (
+        <TwitterIcon />
+      ) : icon === 'GitHub' ? (
+        <GitHubIcon />
+      ) : null}
+    </i>
+  )
+}
+
+function LinkedInIcon() {
   return (
     <svg
-      className={`${className}`}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width="100%"
+      height="100%"
       viewBox="0 0 24 24"
     >
       <path
@@ -21,13 +34,12 @@ export function LinkedInIcon({ className = '' }: iconProps) {
   )
 }
 
-export function TwitterIcon({ className = '' }: iconProps) {
+function TwitterIcon() {
   return (
     <svg
-      className={`${className}`}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width="100%"
+      height="100%"
       viewBox="0 0 24 24"
     >
       <path
@@ -40,13 +52,12 @@ export function TwitterIcon({ className = '' }: iconProps) {
   )
 }
 
-export function GitHubIcon({ className = '' }: iconProps) {
+function GitHubIcon() {
   return (
     <svg
-      className={`${className}`}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width="100%"
+      height="100%"
       viewBox="0 0 24 24"
     >
       <mask id="lineMdGithubLoop0" width="24" height="24" x="0" y="0">

@@ -2,7 +2,7 @@ import { Typography } from '@material-tailwind/react'
 import Head from 'next/head'
 import Image from 'next/image'
 import { LinkTo } from '~/components/Button'
-import { GitHubIcon, LinkedInIcon, TwitterIcon } from '~/components/Icons'
+import { Icon } from '~/components/Icons'
 import { ContainerPage } from '~/components/container_page'
 
 export default function Home() {
@@ -67,7 +67,7 @@ export default function Home() {
                 type="secondary"
                 className="pl-4"
               >
-                <LinkedInIcon className="h-6 w-6" />
+                <Icon icon="LinkedIn" />
                 <span className="-mb-1.5">LinkedIn</span>
               </LinkTo>
               <LinkTo
@@ -77,7 +77,7 @@ export default function Home() {
                 type="secondary"
                 className="pl-4"
               >
-                <TwitterIcon className="h-6 w-6" />
+                <Icon icon="Twitter" />
                 <span className="-mb-1.5">Twitter</span>
               </LinkTo>
               <LinkTo
@@ -87,7 +87,7 @@ export default function Home() {
                 type="secondary"
                 className="pl-4"
               >
-                <GitHubIcon className="h-6 w-6" />
+                <Icon icon="GitHub" />
                 <span className="-mb-1.5"> GitHub</span>
               </LinkTo>
             </div>

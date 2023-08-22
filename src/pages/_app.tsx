@@ -6,8 +6,8 @@ import { Toaster } from 'react-hot-toast'
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
-    <ThemeProvider attribute='class'>
-      <Toaster position='bottom-center' />
+    <ThemeProvider attribute="class">
+      <Toaster position="bottom-center" />
       <Component {...pageProps} />
     </ThemeProvider>
   )
