@@ -25,7 +25,7 @@ export default function ContactMe() {
             <span> Have a Question? or Just want to say Hi?</span>
             <span>Drop me a message!</span>
           </p>
-          <div className="my-10 flex gap-5">
+          <div className="my-10 flex flex-col gap-5 sm:flex-row">
             <MainInput
               label="Name"
               placeholder="your name"

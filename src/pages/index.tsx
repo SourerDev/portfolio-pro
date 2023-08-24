@@ -24,7 +24,7 @@ export default function Home() {
               alt="Owner"
             />
             <Image
-              className="l absolute right-0 top-0 h-[150px] w-[150px] rounded-sm md:bottom-0 md:top-auto md:h-[200px] md:w-[200px]"
+              className="absolute right-0 top-0 h-[150px] w-[150px] rounded-sm md:bottom-0 md:top-auto md:h-[200px] md:w-[200px]"
               src="https://res.cloudinary.com/dolf4hf4p/image/upload/f_auto,q_auto/ltu9dy9otlznpjwibxzs"
               width={200}
               height={200}

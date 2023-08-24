@@ -13,6 +13,9 @@
   body {
     font-family: 'Poppins', Arial, sans-serif;
   }
+  .paragraph{
+    font-size: clamp(14px, 5vw, 100px);
+  }
 }
 @layer utilities {
   .no-scrollbar::-webkit-scrollbar {

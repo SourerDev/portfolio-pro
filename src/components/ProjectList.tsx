@@ -10,6 +10,7 @@ import {
   CardBody,
   Carousel,
   Dialog,
+  Spinner,
   Typography,
 } from '@material-tailwind/react'
 import Image from 'next/image'
@@ -37,7 +38,7 @@ export function ProjectList({
   isError,
   projects,
 }: ProjectListProps) {
-  if (isLoading) return <span>... Loading</span>
+  if (isLoading) return <Spinner />
   if (isError) return <span> error </span>
   //if (projects == null || projects.length === 0) return <h2 className='text-center mt-3 font-semibold text-xl'>No projects</h2>
 
@@ -141,7 +142,7 @@ export function ProjectListClient({
   isError,
   projects,
 }: ProjectListProps) {
-  if (isLoading) return <span>... Loading</span>
+  if (isLoading) return <Spinner />
   if (isError) return <span> error </span>
 
   if (!projects?.length) return <h2>No projects</h2>
