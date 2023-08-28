@@ -4,7 +4,7 @@ type IconProps = {
 
 export function Icon({ icon }: IconProps) {
   return (
-    <i className="h-6 w-6">
+    <div className="h-6 w-6">
       {icon === 'LinkedIn' ? (
         <LinkedInIcon />
       ) : icon === 'Twitter' ? (
@@ -12,7 +12,7 @@ export function Icon({ icon }: IconProps) {
       ) : icon === 'GitHub' ? (
         <GitHubIcon />
       ) : null}
-    </i>
+    </div>
   )
 }
 
