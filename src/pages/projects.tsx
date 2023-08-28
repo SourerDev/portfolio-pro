@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { ContainerPage } from '~/components/container_page'
-import { ProjectListClient } from '~/components/ProjectList'
+import { ProjectList } from '~/components/lists/project_list'
 import { api } from '~/utils/api'
 
 export default function ProjectsPage() {
@@ -15,7 +15,7 @@ export default function ProjectsPage() {
       </Head>
       <ContainerPage>
         <main className="min-h-[90vh]">
-          <ProjectListClient
+          <ProjectList
             projects={projects.data}
             isError={projects.isError}
             isLoading={projects.isLoading}

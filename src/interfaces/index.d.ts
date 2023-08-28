@@ -9,8 +9,11 @@ export interface ProjectProps {
   name: string
   description: string
   images: string[]
-  goals: string[]
   state: string
-  github: string
-  deploy: string
+}
+
+export interface ProjectListProps {
+  isLoading: boolean
+  isError: boolean
+  projects?: ProjectProps[]
 }

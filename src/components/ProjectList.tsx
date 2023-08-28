@@ -3,7 +3,6 @@ import {
   CheckCircleIcon,
   ClockIcon,
   PencilSquareIcon,
-  XMarkIcon,
 } from '@heroicons/react/24/outline'
 import {
   Card,
@@ -16,7 +15,6 @@ import {
 import Image from 'next/image'
 import { ProjectForm } from './ProjectForm'
 import { IconButton } from './Button'
-import { Fragment, useState } from 'react'
 import { DialogModal } from './common/modals/modal'
 
 type Project = {
@@ -147,7 +145,7 @@ export function ProjectListClient({
 
   if (!projects?.length) return <h2>No projects</h2>
   return (
-    <div className="grid grid-cols-2 gap-4">
+    <div className="grid grid-cols-1 gap-4">
       {projects?.map((project) => (
         <ProjectCardClient key={project.id} {...project} />
       ))}
