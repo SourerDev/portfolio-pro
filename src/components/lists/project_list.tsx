@@ -40,14 +40,6 @@ function ProjectCard({ name, images, ...props }: ProjectProps) {
             <PreviewProject name={name} images={images} {...props} />
           </span>
         </div>
-        {/* <div className="absolute inset-0 flex h-full w-full items-center justify-center transition-all group-hover:bg-black/50">
-          <p className="invisible text-xl font-semibold text-text-dk group-hover:visible">
-            {name}
-          </p>
-          <span className="invisible absolute right-3 top-3 group-hover:visible">
-            <PreviewProject name={name} images={images} {...props} />
-          </span>
-        </div> */}
       </CardBody>
     </Card>
   )

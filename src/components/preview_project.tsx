@@ -29,6 +29,7 @@ export function PreviewProject({ name, description, images }: ProjectProps) {
           >
             {images.map((image, i) => (
               <Image
+                loading="eager"
                 key={i}
                 className="h-full w-full"
                 src={image || ''}
