@@ -16,9 +16,9 @@ import { GoBack } from '~/components/GoBack'
 import { ContainerPage } from '~/components/container_page'
 import { useState, type Dispatch, type SetStateAction } from 'react'
 import { api } from '~/utils/api'
-import { ProjectList } from '~/components/ProjectList'
 import { ThemeMode } from '~/components/Button'
 import { LoginAdmin } from '~/modules/auth/LoginAdmin'
+import { ProjectList } from '~/components/lists/project_list_d'
 
 export default function Dashboard() {
   const [login, setlogin] = useState(false)

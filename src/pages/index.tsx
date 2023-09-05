@@ -54,9 +54,10 @@ export default function Home() {
             <div className="mt-6 grid grid-cols-3 gap-2 md:flex md:gap-4">
               <LinkTo
                 className="col-span-3 justify-center"
-                href="/cv"
+                href="/"
                 type="primary"
                 local
+                title="soon!"
               >
                 Read More
               </LinkTo>

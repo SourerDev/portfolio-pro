@@ -13,8 +13,14 @@
   body {
     font-family: 'Poppins', Arial, sans-serif;
   }
-  .paragraph{
+  .paragraph {
     font-size: clamp(14px, 5vw, 100px);
+  }
+
+  @media screen and (min-width: 450px) {
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
   }
 }
 @layer utilities {
