@@ -57,7 +57,7 @@ export default function Home() {
                 href="/"
                 type="primary"
                 local
-                title='soon!'
+                title="soon!"
               >
                 Read More
               </LinkTo>
