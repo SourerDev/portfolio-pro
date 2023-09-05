@@ -4,6 +4,7 @@ import Head from 'next/head'
 import { useReducer } from 'react'
 import { MainInput, MainTextArea } from '~/components/Input'
 import { ContainerPage } from '~/components/container_page'
+import { send } from 'emailjs-com'
 
 enum ActionTypes {
   SET_NAME,
@@ -40,6 +41,16 @@ function reducer(
 export default function ContactMe() {
   const [state, dispatch] = useReducer(reducer, initialState)
 
+  function handleSubmit() {
+    send(`default_service`, `template_bakvvun`, state, `ptr6CixDah4R-FpE-`)
+      .then((res) => {
+        console.log('SUCCESS!', res.status, res.text)
+        dispatch({ payload: '', type: ActionTypes.RESET })
+      })
+      .catch((err) => {
+        console.log('FAILED...', err)
+      })
+  }
   return (
     <>
       <Head>
@@ -86,7 +97,10 @@ export default function ContactMe() {
               }
             />
           </div>
-          <button className="group flex items-center gap-2 self-end rounded-md bg-primary py-3 pl-4 pr-5 font-medium text-text-dk hover:scale-105 hover:shadow-md">
+          <button
+            className="group flex items-center gap-2 self-end rounded-md bg-primary py-3 pl-4 pr-5 font-medium text-text-dk hover:scale-105 hover:shadow-md"
+            onClick={handleSubmit}
+          >
             <PaperAirplaneIcon className="h-5 w-5 " />
             Send
           </button>
