@@ -9,7 +9,9 @@ export interface ProjectProps {
   name: string
   description: string
   images: string[]
-  state: string
+  state: string,
+  github?: string,
+  deploy?: string
 }
 
 export interface ProjectListProps {
