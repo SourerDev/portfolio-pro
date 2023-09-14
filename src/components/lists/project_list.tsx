@@ -10,7 +10,7 @@ export function ProjectList({
 }: ProjectListProps) {
   if (isLoading)
     return (
-      <div className='grid place-content-center'>
+      <div className="grid place-content-center">
         <Spinner />
       </div>
     )
