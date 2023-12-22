@@ -16,13 +16,7 @@ export default function Home() {
       <ContainerPage className="overflow-hidden">
         <main className="flex min-h-[90vh] flex-col justify-around gap-4 md:flex-row-reverse md:items-center md:justify-between">
           <div className="relative md:h-[240px] md:w-1/4">
-            <Image
-              className="absolute left-0 top-0 hidden rounded-sm md:block"
-              src="https://res.cloudinary.com/dolf4hf4p/image/upload/f_auto,q_auto/ltu9dy9otlznpjwibxzs"
-              width={200}
-              height={200}
-              alt="Owner"
-            />
+            <span className="absolute left-0 top-0 hidden rounded-sm border-2 md:block md:h-[200px] md:w-[200px] border-primary" ></span>
             <Image
               className="absolute right-0 top-0 h-[150px] w-[150px] rounded-sm md:bottom-0 md:top-auto md:h-[200px] md:w-[200px]"
               src="https://res.cloudinary.com/dolf4hf4p/image/upload/f_auto,q_auto/ltu9dy9otlznpjwibxzs"
