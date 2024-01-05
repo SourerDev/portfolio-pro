@@ -6,7 +6,7 @@ export function MainProjectsSection() {
       <h2 className="mt-4 text-center text-2xl font-bold uppercase">
         Portfolio
       </h2>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 gap-1 sm:gap-4">
         {projects.map(({ name }, i) => (
           <div className="grid h-80 place-content-center border-2" key={i}>
             {name}
