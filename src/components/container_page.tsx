@@ -16,10 +16,10 @@ export function ContainerPage({
   footer = true,
 }: ContainerPageProps) {
   return (
-    <div className="relative h-screen w-full min-w-[390px] overflow-y-scroll bg-background dark:bg-background-dk">
+    <div className="relative h-screen w-full min-w-[320px] overflow-y-scroll bg-background dark:bg-background-dk">
       {typeof header === 'boolean' && header ? <NavBar /> : header}
       <div
-        className={`mx-auto min-h-screen max-w-5xl  p-6 text-text dark:text-text-dk ${className}`}
+        className={`mx-auto min-h-screen max-w-5xl  p-3 text-text dark:text-text-dk ${className}`}
       >
         {children}
       </div>

@@ -8,6 +8,7 @@ import {
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { ThemeMode } from './Button'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export function NavBar() {
   const [openNav, setOpenNav] = useState(false)
@@ -20,35 +21,43 @@ export function NavBar() {
   }, [])
 
   return (
-    <Navbar className="sticky top-0 z-50 mx-auto max-w-5xl rounded-none border-none bg-background px-6 py-3 dark:bg-background-dk">
-      <div className="flex items-center justify-between text-text dark:text-text-dk">
-        <Link href="/">
-          <Typography
-            variant="h6"
-            className="mr-4 cursor-pointer py-1.5 text-primary"
+    <Navbar className="sticky top-0 z-50  rounded-none border-none bg-background/70 p-0 shadow-none">
+      <div className="mx-auto max-w-5xl p-3">
+        <div className="flex items-center justify-between text-text dark:text-text-dk">
+          <Link href="/" className="flex items-center gap-2">
+            <Image
+              src="/My-logo.png"
+              alt="Yhonier Alegria"
+              width={20}
+              height={20}
+            />
+            <Typography
+              variant="h6"
+              className="mr-4 cursor-pointer py-1.5 text-primary"
+            >
+              Alegria
+            </Typography>
+          </Link>
+          <div className="hidden lg:block">
+            <NavList />
+          </div>
+          <IconButton
+            variant="text"
+            className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+            ripple={false}
+            onClick={() => setOpenNav(!openNav)}
           >
-            Sourer Dev
-          </Typography>
-        </Link>
-        <div className="hidden lg:block">
-          <NavList />
+            {openNav ? (
+              <XMarkIcon className="h-6 w-6" strokeWidth={2} />
+            ) : (
+              <Bars3Icon className="h-6 w-6" strokeWidth={2} />
+            )}
+          </IconButton>
         </div>
-        <IconButton
-          variant="text"
-          className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
-          ripple={false}
-          onClick={() => setOpenNav(!openNav)}
-        >
-          {openNav ? (
-            <XMarkIcon className="h-6 w-6" strokeWidth={2} />
-          ) : (
-            <Bars3Icon className="h-6 w-6" strokeWidth={2} />
-          )}
-        </IconButton>
+        <Collapse open={openNav}>
+          <NavList />
+        </Collapse>
       </div>
-      <Collapse open={openNav}>
-        <NavList />
-      </Collapse>
     </Navbar>
   )
 }
