@@ -30,9 +30,9 @@ export function LandingSection() {
             experiences.
           </Typography>
         </div>
-        <div className="mt-6 grid grid-cols-3 gap-2 md:flex md:gap-4">
+        <div className="mt-6 grid grid-cols-4 gap-2 md:flex md:gap-4">
           <LinkTo
-            className="col-span-3 justify-center"
+            className="col-span-4 justify-center"
             href="/"
             type="primary"
             local
@@ -45,27 +45,17 @@ export function LandingSection() {
             target="_blank"
             rel="no-referrer"
             type="secondary"
-            className="pl-4"
+            className="pl-4 col-span-2"
           >
             <Icon icon="LinkedIn" />
             <span className="-mb-1.5">LinkedIn</span>
-          </LinkTo>
-          <LinkTo
-            href="https://twitter.com/SourerDev"
-            target="_blank"
-            rel="no-referrer"
-            type="secondary"
-            className="pl-4"
-          >
-            <Icon icon="Twitter" />
-            <span className="-mb-1.5">Twitter</span>
-          </LinkTo>
+          </LinkTo> 
           <LinkTo
             href="https://github.com/SourerDev"
             target="_blank"
             rel="no-referrer"
             type="secondary"
-            className="pl-4"
+            className="pl-4 col-span-2"
           >
             <Icon icon="GitHub" />
             <span className="-mb-1.5"> GitHub</span>
