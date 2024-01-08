@@ -1,10 +1,5 @@
 import { useEffect, useState } from 'react'
-import {
-  Collapse,
-  IconButton,
-  Navbar,
-  Typography,
-} from '@material-tailwind/react'
+import { IconButton, Navbar, Typography } from '@material-tailwind/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { ThemeMode } from './Button'
 import Link from 'next/link'
@@ -21,7 +16,7 @@ export function NavBar() {
   }, [])
 
   return (
-    <Navbar className="sticky top-0 z-50  rounded-none border-none bg-background/70 p-0 dark:bg-background-dk/70 shadow-none">
+    <Navbar className="sticky top-0 z-50  rounded-none border-none bg-background/70 p-0 shadow-none dark:bg-background-dk/70">
       <div className="mx-auto max-w-5xl p-3">
         <div className="flex items-center justify-between text-text dark:text-text-dk">
           <Link href="/" className="flex items-center gap-2">
@@ -54,9 +49,6 @@ export function NavBar() {
             )}
           </IconButton>
         </div>
-        <Collapse open={openNav}>
-          <NavList />
-        </Collapse>
       </div>
     </Navbar>
   )
