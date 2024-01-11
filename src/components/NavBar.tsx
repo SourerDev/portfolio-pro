@@ -80,7 +80,7 @@ export function NavBar() {
               </IconButton>
             </div>
             <ul>
-              {routes?.map((route, i) => (
+              {routes?.map(({ title, href }, i) => (
                 <Typography
                   key={i}
                   as="li"
@@ -88,10 +88,10 @@ export function NavBar() {
                   className="p-1 font-medium"
                 >
                   <Link
-                    href={`/${route}`}
+                    href={href}
                     className="flex items-center transition-colors hover:font-medium hover:text-primary"
                   >
-                    {route}{' '}
+                    {title}{' '}
                   </Link>
                 </Typography>
               ))}
@@ -107,13 +107,13 @@ export function NavBar() {
 function NavList() {
   return (
     <ul className="my-2 flex flex-col gap-2 font-medium lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-      {routes?.map((route, i) => (
+      {routes?.map(({ title, href }, i) => (
         <Typography key={i} as="li" variant="small" className="p-1 font-medium">
           <Link
-            href={`/${route}`}
+            href={href}
             className="flex items-center transition-colors hover:font-medium hover:text-primary"
           >
-            {route}{' '}
+            {title}{' '}
           </Link>
         </Typography>
       ))}

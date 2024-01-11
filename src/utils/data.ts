@@ -25,4 +25,13 @@ export const projects = [
   },
 ]
 
-export const routes = ['Portfolio', 'Contact me']
+export const routes = [
+  {
+    title: 'Portfolio',
+    href: '/portfolio',
+  },
+  {
+    title: 'Contact me',
+    href: '/contact',
+  },
+]
