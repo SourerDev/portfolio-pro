@@ -1,9 +1,8 @@
 import {
-  ArrowLeftOnRectangleIcon,
   ArrowTopRightOnSquareIcon,
   ChevronRightIcon,
 } from '@heroicons/react/24/outline'
-import { projects } from '~/utils/data.json'
+import { projects } from '~/utils/data'
 
 export function MainProjectsSection() {
   return (
@@ -32,7 +31,7 @@ export function MainProjectsSection() {
         ))}
       </div>
       <p className=" text-right">
-        <span className='hover:font-semibold p-3 rounded-md hover:text-primary'>
+        <span className="rounded-md p-3 hover:font-semibold hover:text-primary">
           View More{' '}
           {
             <ChevronRightIcon className="inline-block aspect-square w-5 align-middle " />

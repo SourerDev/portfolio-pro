@@ -1,14 +1,10 @@
 import { useEffect, useState } from 'react'
-import {
-  Drawer,
-  IconButton,
-  Navbar,
-  Typography,
-} from '@material-tailwind/react'
+import { IconButton, Navbar, Typography } from '@material-tailwind/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { ThemeMode } from './Button'
 import Link from 'next/link'
 import Image from 'next/image'
+import { routes } from '~/utils/data'
 
 export function NavBar() {
   const [open, setOpen] = useState(false)
@@ -84,8 +80,21 @@ export function NavBar() {
               </IconButton>
             </div>
             <ul>
-              <li>Portfolio</li>
-              <li>Contact me</li>
+              {routes?.map((route, i) => (
+                <Typography
+                  key={i}
+                  as="li"
+                  variant="small"
+                  className="p-1 font-medium"
+                >
+                  <Link
+                    href={`/${route}`}
+                    className="flex items-center transition-colors hover:font-medium hover:text-primary"
+                  >
+                    {route}{' '}
+                  </Link>
+                </Typography>
+              ))}
               <ThemeMode />
             </ul>
           </div>
@@ -98,22 +107,16 @@ export function NavBar() {
 function NavList() {
   return (
     <ul className="my-2 flex flex-col gap-2 font-medium lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-      <Typography as="li" variant="small" className="p-1 font-medium">
-        <Link
-          href="/projects"
-          className="flex items-center transition-colors hover:font-medium hover:text-primary"
-        >
-          Portfolio
-        </Link>
-      </Typography>
-      <Typography as="li" variant="small" className="p-1 font-medium">
-        <Link
-          href="/contact"
-          className="flex items-center transition-colors hover:font-medium hover:text-primary"
-        >
-          Contact me
-        </Link>
-      </Typography>
+      {routes?.map((route, i) => (
+        <Typography key={i} as="li" variant="small" className="p-1 font-medium">
+          <Link
+            href={`/${route}`}
+            className="flex items-center transition-colors hover:font-medium hover:text-primary"
+          >
+            {route}{' '}
+          </Link>
+        </Typography>
+      ))}
       <ThemeMode />
     </ul>
   )
