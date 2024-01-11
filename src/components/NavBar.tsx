@@ -64,7 +64,7 @@ export function NavBar() {
                   height={20}
                 />
                 <Typography
-                  variant="h6"
+                  variant="h5"
                   className="mr-4 cursor-pointer py-1.5 text-primary"
                 >
                   Alegria
@@ -84,18 +84,17 @@ export function NavBar() {
                 <Typography
                   key={i}
                   as="li"
-                  variant="small"
+                  variant="lead"
                   className="p-1 font-medium"
                 >
                   <Link
                     href={href}
-                    className="flex items-center transition-colors hover:font-medium hover:text-primary"
+                    className="flex items-center transition-colors hover:font-medium hover:text-primary p-3 hover:bg-gray-300 rounded-md"
                   >
                     {title}{' '}
                   </Link>
                 </Typography>
               ))}
-              <ThemeMode />
             </ul>
           </div>
         )}
