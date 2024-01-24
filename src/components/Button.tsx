@@ -43,9 +43,9 @@ export function ThemeMode() {
       className="group hover:text-primary "
     >
       {theme == 'dark' ? (
-        <SunIcon className="group-hover:stroke-2 h-6 w-6" />
+        <SunIcon className="group-hover:stroke-2 aspect-square  w-8" />
       ) : (
-        <MoonIcon className="group-hover:stroke-2 h-5 w-5" />
+        <MoonIcon className="group-hover:stroke-2 aspect-square w-8" />
       )}
     </button>
   )
