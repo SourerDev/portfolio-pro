@@ -10,7 +10,7 @@ export default function HomePage() {
       <Head>
         <title>Yhonier Alegria | Developer</title>
         <meta name="description" content="Frontend Developer" />
-        <link rel="icon" href="/My-logo.png" />
+        <link rel="icon" href="/icon-ya.svg" />
       </Head>
       <ContainerPage className="overflow-hidden">
         <LandingSection />

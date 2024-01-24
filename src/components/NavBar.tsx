@@ -25,7 +25,7 @@ export function NavBar() {
         <div className="flex items-center justify-between text-text dark:text-text-dk">
           <Link href="/" className="flex items-center gap-2">
             <Image
-              src="/My-logo.png"
+              src="/icon-ya.svg"
               alt="Yhonier Alegria"
               width={20}
               height={20}
