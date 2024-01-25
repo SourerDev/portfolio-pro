@@ -9,19 +9,17 @@ export function LandingSection() {
     <main className="relative min-h-[90vh]">
       <div className=" grid place-content-center">
         <Image
-          className="h-[150px] w-[150px] rounded-sm md:h-[200px] md:w-[200px]"
+          className="aspect-square w-[168px] rounded-sm object-cover md:h-[200px] md:w-[200px]"
           src="https://res.cloudinary.com/dolf4hf4p/image/upload/f_auto,q_auto/ltu9dy9otlznpjwibxzs"
           width={200}
           height={200}
           alt="Owner"
         />
       </div>
-      <div className="md:w-3/4">
-        <Typography variant="h3">Hello</Typography>
-        <Typography variant="h1" className="text-primary">
-          I&lsquo;m Yhonier
-        </Typography>
-        <Typography variant="h4">Frontend Developer</Typography>
+      <div className="md:w-3/4 text-center mt-2">
+        <span className="hidden">Hello</span>
+        <h1 className="text-primary text-[48px] font-bold">I&lsquo;m Yhonier</h1>
+        <h2 className='text-2xl font-semibold'>Frontend Developer</h2>
         <div className="mt-5 ">
           <Typography variant="paragraph">
             I love working with typescript and react, I have experience creating
@@ -45,17 +43,17 @@ export function LandingSection() {
             target="_blank"
             rel="no-referrer"
             type="secondary"
-            className="pl-4 col-span-2"
+            className="col-span-2 pl-4"
           >
             <Icon icon="LinkedIn" />
             <span className="-mb-1.5">LinkedIn</span>
-          </LinkTo> 
+          </LinkTo>
           <LinkTo
             href="https://github.com/SourerDev"
             target="_blank"
             rel="no-referrer"
             type="secondary"
-            className="pl-4 col-span-2"
+            className="col-span-2 pl-4"
           >
             <Icon icon="GitHub" />
             <span className="-mb-1.5"> GitHub</span>
