@@ -2,7 +2,7 @@ export const projects = [
   {
     name: 'Twitter Clone',
     images: {
-      main: 'https://res.cloudinary.com/dolf4hf4p/image/upload/v1689459754/samples/ecommerce/analog-classic.jpg',
+      main: 'https://i.pinimg.com/564x/12/02/bc/1202bc442fd04c7e6873b8eccec79306.jpg',
     },
   },
   {

@@ -1,7 +1,4 @@
-import {
-  ArrowTopRightOnSquareIcon,
-  ChevronRightIcon,
-} from '@heroicons/react/24/outline'
+import { ChevronRightIcon } from '@heroicons/react/24/outline'
 import { projects } from '~/utils/data'
 
 export function MainProjectsSection() {
@@ -10,22 +7,23 @@ export function MainProjectsSection() {
       <h2 className="mt-4 text-center text-2xl font-bold uppercase">
         Portfolio
       </h2>
-      <div className="grid grid-cols-1 gap-1 sm:grid-cols-2 sm:gap-4">
+      <div className="grid grid-cols-1  gap-10 sm:grid-cols-2 sm:gap-4">
         {projects.map(({ name, images }, i) => (
           <div
-            className="group relative grid h-80 place-content-center overflow-hidden bg-cover bg-center hover:backdrop-blur-3xl"
+            className="group relative h-72 overflow-hidden rounded-xl bg-cover bg-center hover:backdrop-blur-3xl "
             key={i}
             style={{
               backgroundImage: `url(${images.main})`,
+              boxShadow:
+                '0px 2.767px 2.214px 0px rgba(0, 0, 0, 0.02), 0px 6.65px 5.32px 0px rgba(0, 0, 0, 0.03), 0px 100px 80px 0px rgba(0, 0, 0, 0.07)',
             }}
           >
-            <div className="absolute inset-x-0 top-[75%] h-1/2 rounded-t-xl bg-primary p-4 text-white transition-all duration-500 ease-in-out group-hover:top-[50%]">
-              <div className="flex items-center justify-between">
-                <p className="text-xl font-semibold ">{name}</p>
-                <div className="rounded-md p-2 transition-all ease-in-out hover:scale-110 hover:bg-accent hover:shadow">
-                  <ArrowTopRightOnSquareIcon className=" aspect-square w-8" />
-                </div>
-              </div>
+            <div
+              className="absolute inset-x-0 bottom-0 flex items-center justify-between rounded-xl p-3 text-text-dk"
+              style={{ background: 'rgba(13, 14, 18, 0.90)' }}
+            >
+              <p className="text-xl font-semibold ">{name}</p>
+              <ChevronRightIcon className="inline-block aspect-square w-7 align-middle " />
             </div>
           </div>
         ))}
