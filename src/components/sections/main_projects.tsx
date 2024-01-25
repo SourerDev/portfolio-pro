@@ -10,7 +10,7 @@ export function MainProjectsSection() {
       <div className="grid grid-cols-1  gap-10 sm:grid-cols-2 sm:gap-4">
         {projects.map(({ name, images }, i) => (
           <div
-            className="group relative h-72 overflow-hidden rounded-xl bg-cover bg-center hover:backdrop-blur-3xl "
+            className="group relative h-[400px] overflow-hidden rounded-xl bg-cover bg-center hover:backdrop-blur-3xl "
             key={i}
             style={{
               backgroundImage: `url(${images.main})`,
@@ -19,7 +19,7 @@ export function MainProjectsSection() {
             }}
           >
             <div
-              className="absolute inset-x-0 bottom-0 flex items-center justify-between rounded-xl p-3 text-text-dk"
+              className="absolute inset-x-0 bottom-0 flex items-center justify-between rounded-xl px-3 py-5 text-text-dk"
               style={{ background: 'rgba(13, 14, 18, 0.90)' }}
             >
               <p className="text-xl font-semibold ">{name}</p>
