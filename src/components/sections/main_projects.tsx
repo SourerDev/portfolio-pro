@@ -3,7 +3,7 @@ import { projects } from '~/utils/data'
 
 export function MainProjectsSection() {
   return (
-    <section className="space-y-6">
+    <section className="space-y-6 mt-10">
       <h2 className="mt-4 text-center text-2xl font-bold uppercase">
         Portfolio
       </h2>
