@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { IconButton, Navbar } from '@material-tailwind/react'
+import { Dialog, IconButton, Navbar } from '@material-tailwind/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { ThemeMode } from './Button'
 import Link from 'next/link'
@@ -36,8 +36,8 @@ export function NavBar() {
             <Bars3Icon className="aspect-square w-8" strokeWidth={2} />
           </IconButton>
         </div>
-        {open && (
-          <div className="fixed inset-0 z-50 min-h-screen bg-background p-3 text-text">
+        <Dialog size="xxl" open={open} handler={openDrawer}>
+          <div className="bg-background p-3 text-text">
             <div className="flex items-center justify-between text-text dark:text-text-dk">
               <NavHeader />
               <IconButton
@@ -54,7 +54,7 @@ export function NavBar() {
               <ThemeMode />
             </div>
           </div>
-        )}
+        </Dialog>
       </div>
     </Navbar>
   )
