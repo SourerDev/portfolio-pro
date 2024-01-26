@@ -36,7 +36,12 @@ export function NavBar() {
             <Bars3Icon className="aspect-square w-8" strokeWidth={2} />
           </IconButton>
         </div>
-        <Dialog size="xxl" open={open} handler={openDrawer}>
+        <Dialog
+          size="xxl"
+          open={open}
+          handler={openDrawer}
+          className="duration-0"
+        >
           <div className="bg-background p-3 text-text">
             <div className="flex items-center justify-between text-text dark:text-text-dk">
               <NavHeader />
