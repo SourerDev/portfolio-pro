@@ -19,7 +19,7 @@ export function ContainerPage({
     <div className="relative h-screen w-full min-w-[320px] overflow-y-scroll bg-background dark:bg-background-dk">
       {typeof header === 'boolean' && header ? <NavBar /> : header}
       <div
-        className={`mx-auto min-h-screen max-w-5xl  p-3 sm:p-4 text-text dark:text-text-dk mb-6 ${className}`}
+        className={`mx-auto min-h-screen max-w-5xl overflow-visible p-3 sm:p-4 text-text dark:text-text-dk mb-6 ${className}`}
       >
         {children}
       </div>
